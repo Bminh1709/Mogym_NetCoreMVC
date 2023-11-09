@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/combinedUser.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="grid grid-cols-6">
+        <div class="sidebar__container col-span-1">
+            <p class="sidebar__brand">MOGYM</p>
+            <div class="sidebar__item">
+                <p class="sidebar-item__title">DANH MỤC</p>
+                <div class="sidebar-item__menu">
+                    <div class="sidebar-menu service-tab active" onclick="showTab('service-tab')">
+                        <i class="fa-solid fa-cube"></i>
+                        <p>Gói dịch vụ</p>
+                    </div>
+                    <div class="sidebar-menu trainer-tab" onclick="showTab('trainer-tab')">
+                        <i class="fa-solid fa-user"></i>
+                        <p>Huấn luyện viên</p>
+                    </div>
+                    <div class="sidebar-menu message-tab" onclick="showTab('message-tab')">
+                        <i class="fa-solid fa-user"></i>
+                        <p>Tin nhắn</p>
+                    </div>
+                    <div class="sidebar-menu feedback-tab" onclick="showTab('feedback-tab')">
+                        <i class="fa-solid fa-comment"></i>
+                        <p>Đánh giá</p>
+                    </div>
+                    <div class="sidebar-menu account-tab" onclick="showTab('account-tab')">
+                        <i class="fa-solid fa-user-plus"></i>
+                        <p>Tài khoản</p>
+                    </div>
+                </div>
+                <div class="sidebar-item__link">
+                    <div>
+                        <i class="fa-solid fa-braille"></i>
+                        <p style="margin-top: 8px;">
+                            GET FIT, STRONG<br>
+                            & MOTIVATED
+                        </p>
+                    </div>
+                    <i class="fa-solid fa-arrow-right-long"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="main__container col-span-6 xl:col-span-5">
+
+            <div class="navbar__container">
+                <div class="navbar__responsive">
+                    <label for="navbar-responsive__ckbox" class="navbar-responsive__icon"><i class="fa-solid fa-bars"></i></label>
+                    <input hidden type="checkbox" id="navbar-responsive__ckbox" class="navbar-responsive__ckbox">
+                    <label for="navbar-responsive__ckbox" class="nav__overlay"></label>
+                    <div class="navbar-responsive__item">
+                        <a href="/"><p class="navbar-item__title">MOGYM</p></a>
+                        <div class="separator-line"></div>
+                        <a onclick="showTab('service-tab')">Dịch vụ</a>
+                        <a onclick="showTab('member-tab')">Huấn luyện viên</a>
+                        <a onclick="showTab('message-tab')">Tin nhắn</a>
+                        <a onclick="showTab('feedback-tab')">Đánh giá</a>
+                        <a onclick="showTab('account-tab')">Tài khoản</a>
+                    </div>
+                </div>
+                <div class="navbar__item">
+                    <label for="formUpdateInfo" class="infoForm__btn"><i class="fa-solid fa-ellipsis-vertical"></i></label>
+                    <div class="navbar-item__info">
+                        <img class="navbar-info__img" src="~/Image/System/minh2.jpg" alt="">
+                        <div class="navbar-info__detail">
+                            <p>Bùi Minh</p>
+                            <p>Huấn luyện viên thể hình</p>
+                        </div>
+                    </div>
+                    <a class="navbar-item__logout" href=""><i class="fa-solid fa-right-from-bracket"></i></a>
+                </div>
+
+                <input hidden type="checkbox" id="formUpdateInfo">
+                <label for="formUpdateInfo" class="nav__overlay"></label>
+                <form class="formUpSert__form info__form">
+                    <p class="formUpSert__title">CẬP NHẬT THÔNG TIN</p>
+                    <div class="info-form__detail">
+                        <div class="info-detail__title">
+                            <p>Tên</p>
+                            <p>Số điện thoại</p>
+                            <p>Tài khoản gmail</p>
+                            <p>Hình ảnh</p>
+                        </div>
+                        <div class="info-detail__input">
+                            <input type="text">
+                            <input type="text">
+                            <input type="text">
+                            <input type="file">
+                        </div>
+                    </div>
+                    <div class="formUpSert__btn">
+                        <button class="" type="submit">Cập nhật</button>
+                    </div>
+                </form>
+            </div>
+
+            @RenderBody()
+
+
+        </div>
+    </div>
+</body>
+<script src="~/js/tabShifter.js"></script>
+</html>

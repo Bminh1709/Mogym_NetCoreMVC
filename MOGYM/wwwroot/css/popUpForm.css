@@ -1,0 +1,378 @@
+﻿/* ==== FORM ==== */
+.formUpSert__form {
+    top: 12%;
+    z-index: 20;
+    position: fixed;
+    height: fit-content;
+    background-color: white;
+    margin: auto;
+    border-radius: 8px;
+    padding-bottom: 20px;
+    right: 0;
+    transform: translateX(100%);
+}
+
+.formUpSert__title {
+    border-radius: 8px 8px 0 0;
+    padding: 20px 0;
+    background-color: var(--MyPink);
+    text-align: center;
+    font-weight: 600;
+    color: white;
+    font-size: 18px;
+}
+
+.formUpSert__btn {
+    margin-top: 15px !important;
+    width: fit-content;
+    margin: auto;
+    display: flex;
+    gap: 10px;
+}
+
+    .formUpSert__btn button,
+    .formUpSert__btn label {
+        font-size: 13px;
+        padding: 12px 16px;
+        border: 1px solid var(--MyPink);
+        background-color: unset;
+        font-weight: 500;
+        border-radius: 5px;
+    }
+
+        .formUpSert__btn button:hover,
+        .formUpSert__btn label:hover {
+            background-color: var(--MyPink);
+            color: white;
+        }
+
+/* === INFO === */
+.info__form {
+    width: 90%;
+}
+
+.info-form__detail {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.info-detail__title {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: space-around;
+}
+
+    .info-detail__title p {
+        text-align: right;
+        font-size: 15px;
+    }
+
+.info-detail__input {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 50%;
+}
+
+    .info-detail__input input {
+        padding: 10px;
+        outline-color: var(--MyPink);
+        border: 1px solid rgb(199, 199, 199);
+        border-radius: 5px;
+    }
+
+
+/* ==== FORM TASK ==== */
+.task-form__btn {
+    position: absolute;
+    font-size: 18px;
+    right: 15px;
+    top: 15px;
+    color: rgb(199, 198, 198);
+}
+
+    .task-form__btn:hover {
+        cursor: pointer;
+        color: var(--MyPink);
+    }
+
+.task-form__container {
+    width: 90%;
+    overflow: auto;
+}
+
+.task__title {
+    border-radius: 8px 8px 0 0;
+    padding: 20px 0;
+    background-color: var(--MyPink);
+    text-align: center;
+    font-weight: 600;
+    color: white;
+    font-size: 18px;
+}
+
+.task__table {
+    min-width: 650px;
+    width: 100%;
+    table-layout: fixed;
+}
+
+    .task__table th {
+        background-color: var(--MyPink);
+        padding: 10px 0;
+        color: white;
+        font-size: 14px;
+        font-weight: unset;
+    }
+
+        .task__table th:first-child {
+            border-radius: 10px 0 0 0;
+        }
+
+        .task__table th:last-child {
+            border-radius: 0 10px 0 0;
+        }
+
+    .task__table td {
+        background-color: white;
+        text-align: center;
+    }
+
+        .task__table td textarea {
+            width: 100%;
+            resize: none;
+            vertical-align: middle;
+            border: 1px solid rgb(227, 227, 227);
+            padding: 6px;
+            outline-color: rgb(203, 203, 203);
+            text-align: center;
+        }
+
+.task__note {
+    width: 100%;
+    padding: 0 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+    .task__note p {
+        text-align: center;
+        font-size: 15px;
+        margin-bottom: 8px;
+    }
+
+    .task__note textarea {
+        resize: none;
+        border-radius: 5px;
+        padding: 15px;
+        font-size: 13px;
+        width: 50%;
+        outline-color: var(--MyPink);
+        border-color: rgb(193, 193, 193);
+    }
+
+.task__btn {
+    text-align: right;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+    .task__btn button {
+        padding: 12px 16px;
+        border: 1px solid var(--MyPink);
+        background-color: unset;
+        font-weight: 500;
+        border-radius: 5px;
+    }
+
+        .task__btn button:hover {
+            background-color: var(--MyPink);
+            color: white;
+        }
+
+/* === PACKAGE FORM === */
+.package__form {
+    width: 80%;
+}
+
+.package-form__detail {
+    height: 420px;
+    overflow-y: auto;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 20px;
+}
+
+.package-form__item {
+    width: 60%;
+}
+
+    .package-form__item input, textarea {
+        margin-top: 4px;
+        outline-color: var(--MyPink);
+        border: 1px solid rgb(187, 186, 186);
+        border-radius: 5px;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .package-form__item textarea {
+        resize: vertical;
+    }
+
+    .package-form__item:last-of-type {
+        margin-top: 10px;
+    }
+
+.package-form__img {
+    text-align: center;
+}
+
+    .package-form__img img {
+        border-radius: 10px;
+        object-fit: cover;
+        width: 100%;
+        height: 150px;
+    }
+
+/* ==== TRAINER ===== */
+.trainer-form__container {
+    width: 80%;
+}
+
+.trainees__table {
+    min-width: 730px;
+    width: 100%;
+}
+
+    .trainees__table th {
+        background-color: var(--MyPink);
+        padding: 10px 15px;
+        color: white;
+        font-size: 14px;
+        font-weight: unset;
+    }
+
+        .trainees__table th:first-child {
+            border-radius: 10px 0 0 0;
+        }
+
+        .trainees__table th:last-child {
+            border-radius: 0 10px 0 0;
+        }
+
+    .trainees__table td {
+        background-color: white;
+        text-align: center;
+        border: 1px solid rgb(227, 227, 227);
+    }
+
+        .trainees__table td img {
+            padding: 5px;
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+        }
+
+        .trainees__table td button {
+            border: 1px solid rgb(227, 227, 227);
+            height: 80px;
+            width: 100%;
+            background-color: unset;
+            font-size: 20px;
+        }
+
+            .trainees__table td button:hover {
+                cursor: pointer;
+                background-color: var(--MyPink);
+                color: white;
+            }
+
+/* ==== ACCOUNT ==== */
+.account-form__container {
+    width: fit-content;
+}
+
+.account__form {
+    display: flex;
+    gap: 15px;
+    padding: 20px 20px 0 20px;
+}
+
+
+
+/* ==== POP UP EFFECT ==== */
+#formUpSert:checked ~ .nav__overlay {
+    display: block;
+}
+
+#formUpSert:checked ~ .formUpSert__form {
+    transform: unset;
+    left: 0;
+}
+
+#formUpSertTrainer:checked ~ .nav__overlay {
+    display: block;
+}
+
+#formUpSertTrainer:checked ~ .formUpSert__form {
+    transform: unset;
+    left: 0;
+}
+
+#formAddTrainee:checked ~ .nav__overlay {
+    display: block;
+}
+
+#formAddTrainee:checked ~ .formUpSert__form {
+    transform: unset;
+    left: 0;
+}
+
+#formUpdateRole:checked ~ .nav__overlay {
+    display: block;
+}
+
+#formUpdateRole:checked ~ .formUpSert__form {
+    transform: unset;
+    left: 0;
+}
+
+#formUpdateInfo:checked ~ .nav__overlay {
+    display: block;
+}
+
+#formUpdateInfo:checked ~ .formUpSert__form {
+    transform: unset;
+    left: 0;
+}
+
+@media (min-width: 1024px) {
+    .info__form {
+        width: 40%;
+    }
+
+    .package__form {
+        width: 60%;
+    }
+}
+
+@media (min-width: 640px) {
+    .task-form__container {
+        width: 70%;
+    }
+
+    .package__img {
+        width: 300px !important;
+    }
+
+    .info__form {
+        width: fit-content;
+    }
+}

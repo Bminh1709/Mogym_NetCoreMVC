@@ -1,0 +1,82 @@
+﻿.schedule__container {
+    padding: 0 32px;
+}
+
+.schedule__title {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.schedule__table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+    .schedule__table th {
+        background-color: var(--MyPink);
+        padding: 15px 0;
+        color: white;
+    }
+
+.schedule-table__header th:first-child:first-child {
+    border-radius: 10px 0 0 0;
+}
+
+.schedule-table__header th:last-child {
+    border-radius: 0 10px 0 0;
+}
+
+.schedule__table th:first-of-type {
+    width: fit-content;
+}
+
+.schedule-table__row td:first-of-type {
+    font-weight: 500;
+    text-align: center;
+    background-color: var(--MyPink);
+    color: white;
+}
+
+.schedule-table__row textarea {
+    width: 100%;
+    resize: none;
+    vertical-align: middle;
+    border: 1px solid rgb(240, 239, 239);
+    padding: 6px;
+    outline-color: rgb(203, 203, 203);
+    text-align: center;
+}
+
+/* ==== SEARCH ==== */
+.trainer-search__form {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+    .trainer-search__form input {
+        padding: 10px;
+        width: 30%;
+        outline-color: var(--MyPink);
+        border: 1px solid var(--MyPink);
+        border-radius: 6px 0 0 6px;
+    }
+
+    .trainer-search__form button {
+        padding: 12px;
+        border: none;
+        background-color: var(--MyPink);
+        border-radius: 0 6px 6px 0;
+        color: white;
+    }
+
+        .trainer-search__form button:hover {
+            cursor: pointer;
+        }
+
+@media (min-width: 1024px) {
+    .schedule__table th:first-of-type {
+        width: 120px;
+    }
+}

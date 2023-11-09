@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/combinedHome.css" asp-append-version="true">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
+</head>
+<body>
+    @*<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MOGYM</a>*@
+    
+    <div class="header">
+        <div class="nav">
+            <div class="nav-left">
+                <a href="/" class="brand">MOGYM</a>
+            </div>
+            <div class="nav-right">
+                <a href="/" class="nav-link active">Trang chủ</a>
+                <a href="#services" class="nav-link">Dịch vụ</a>
+                <a href="#contact" class="nav-link">Liên hệ</a>
+                <div class="separator">|</div>
+                <a class="nav-link" asp-controller="Home" asp-action="SignIn">Đăng nhập</a>
+                <a class="nav-link" asp-controller="Home" asp-action="SignUp">Đăng ký</a>
+            </div>
+
+            <!-- Responsive navbar -->
+            <input hidden type="checkbox" id="mobile-navbar" class="checkbox-navbar">
+            <label class="bars-icon" for="mobile-navbar"><i class="fa-solid fa-bars icon-bars"></i></label>
+            <label for="mobile-navbar" class="nav__overlay"></label>
+            <div class="responsive-navbar">
+                <p class="brand">MOGYM</p>
+                <div class="separator-line"></div>
+                <a href="/" class="nav-link">Trang chủ</a>
+                <a href="#services" class="nav-link">Dịch vụ</a>
+                <a href="#contact" class="nav-link">Liên hệ</a>
+                <a asp-controller="Home" asp-action="SignIn" class="nav-link">Đăng nhập</a>
+                <a asp-controller="Home" asp-action="SignUp" class="nav-link">Đăng ký</a>
+            </div>
+        </div>
+    </div>
+
+        @RenderBody()
+
+    <div class="footer__container" id="contact">
+        <span class="bg_blur blur-left"></span>
+        <span class="bg_blur blur-right"></span>
+        <div class="footer__item grid grid-cols-1 lg:grid-cols-2">
+            <div class="footer-item__detail">
+                <p class="footer-detail__brand">MOGYM</p>
+                <P class="footer-detail__text">Với MoGym, bạn không chỉ đang chọn một nơi để luyện tâp, bạn đang chọn một lối sống khỏe mạnh và động viên để thúc đẩy bạn đạt được những thành tựu tuyệt vời. Hãy đến với MoGym và khám phá cơ hội mở khóa tiềm năng của bạn trong một môi trường chuyên nghiệp và đầy đam mê.</P>
+                <div class="footer-detail__info">
+                    <div class="footer-info__address">
+                        <i class="fa-solid fa-location-dot"></i>
+                        78 Lê Tấn Trung, Thọ Quang, Sơn Trà, Đà Nẵng
+                    </div>
+                    <div class="footer-info__phone">
+                        <i class="fa-solid fa-phone"></i>
+                        0706162561 - 0905905716
+                    </div>
+                </div>
+                <div class="footer-info__link">
+                    <a href="" class=""><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="" class=""><i class="fa-brands fa-instagram"></i></a>
+                    <a href="" class=""><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-item__form">
+                <p class="footer-form__title">Nhập thông tin của bạn</p>
+                <form action="" class="footer-form__form">
+                    <input type="text" id="gmail" placeholder="Tài khoản Gmail" class="">
+                    <input type="text" id="phone" placeholder="Số điện thoại" class="">
+                    <input type="text" id="message" placeholder="Lời nhắn" class="">
+                    <input type="submit" value="Gủi đi" class="">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <p class="footer__end">Mọi chi tiết xin vui lòng liên hệ 0706162561 để được hỗ trợ kịp thời!</p>
+       
+</body>
+<script src="~/js/home.js" asp-append-version="true"></script>
+    @*@await RenderSectionAsync("Scripts", required: false)*@
+</html>

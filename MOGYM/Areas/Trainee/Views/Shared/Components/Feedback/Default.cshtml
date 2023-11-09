@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="search__container">
+    <div class="search-item__title">
+        <p>ĐÁNH GIÁ</p>
+        <P>Hãy cho MOGYM biết về trải nghiệm của bạn nhé</P>
+    </div>
+</div>
+
+<form class="feedback__container">
+    <div class="feedback__item">
+        <p class="feedback__title">Mức độ hài lòng</p>
+        <p class="feedback__des">Mức độ hài lòng về dịch vụ tại MOGYM</p>
+        <div class="feedback-item__icon">
+            <p>😠</p>
+            <p>😟</p>
+            <p class="active">🙂</p>
+            <p>😊</p>
+            <p>😍</p>
+        </div>
+    </div>
+    <div class="feedback__item">
+        <p class="feedback__title">Chi nhánh</p>
+        <p class="feedback__des">Chi nhánh mogym tại khu vực của bạn</p>
+        <select name="cars" id="cars" class="dropdown__select">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+        </select>
+    </div>
+    <div class="feedback__item">
+        <p class="feedback__title">Lời nhắn</p>
+        <p class="feedback__des">Hãy gửi gắm cảm nhận của bạn tại đây nhé</p>
+        <textarea class="feedback__message" rows="10"></textarea>
+    </div>
+    <div>
+        <button class="feedback__btn" type="submit">Gửi nhận xét</button>
+    </div>
+</form>
+

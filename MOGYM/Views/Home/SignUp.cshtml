@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Đăng ký";
+}
+
+<div class="signup__container">
+    <span class="bg_blur blur-right"></span>
+    <p class="login__title">Đăng ký</p>
+    <form action="" id="" class="login__form">
+        <div class="login__item">
+            <label for="">Tên đầy đủ</label>
+            <input type="text" name="name" placeholder="Nhập tên tại đây">
+        </div>
+        <div class="login__item">
+            <label for="">Tài khoản Gmail</label>
+            <input type="email" name="gmail" placeholder="Nhập gmail tại đây">
+        </div>
+        <div class="login__item">
+            <label for="">Số điện thoại</label>
+            <input type="number" name="phone" placeholder="Nhập số điện thoại tại đây">
+        </div>
+        <div class="login__item login__password">
+            <label for="">Mật khẩu</label>
+            <input type="password" name="password" id="passwordInput" placeholder="Nhập mật khẩu tại đây">
+            <i id="togglePassword" class="fa-solid fa-eye"></i>
+        </div>
+        <div class="login__item login__password">
+            <label for="">Xác nhận mật khẩu</label>
+            <input type="password" name="" placeholder="Nhập lại mật khẩu">
+        </div>
+        <div class="login__item">
+            <label for="">Hình ảnh</label>
+            <label class="signup__img" for="signup__img"><i class="fa-solid fa-file-arrow-up"></i><p>Tải ảnh lên</p></label>
+            <input id="signup__img" hidden type="file" name="avatar" accept="image/*">
+        </div>
+        <div class="login__btn">
+            <input type="submit" value="Đăng ký" class="">
+        </div>
+    </form>
+</div>

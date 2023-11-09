@@ -1,0 +1,280 @@
+﻿@{
+    ViewData["Title"] = "Trang chủ";
+    Layout = "../Shared/_TrainerLayout.cshtml";
+}
+
+<!-- MEMBER CONTAINER -->
+<div id="member-tab" class="tab active">
+    <div class="search__container">
+        <div class="search-item__title">
+            <p>QUẢN LÝ HỌC VIÊN</p>
+            <P>Những học viên mà bạn đang phụ trách</P>
+        </div>
+        <div class="search-item__option">
+            <form action="" class="search-option__form">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <input class="" type="text" placeholder="Nhập tên học viên">
+            </form>
+            <div class="search-item__option">
+                <label for="formAddTrainee" class="search-option__add">Thêm học viên</label>
+            </div>
+
+            <input hidden type="checkbox" id="formAddTrainee">
+            <label for="formAddTrainee" class="nav__overlay"></label>
+            <div for="formAddTrainee" class="formUpSert__form trainer-form__container">
+                <p class="formUpSert__title">DANH SÁCH HỌC VIÊN</p>
+                <div style="height: 480px; overflow-y: auto;">
+                    <form action="" class="trainer-search__form">
+                        <input class="" type="text" placeholder="Nhập tên học viên">
+                        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                    <div style="overflow: auto; margin: 20px;">
+                        <table class="trainees__table">
+                            <tr>
+                                <th>Ảnh</th>
+                                <th>Tên</th>
+                                <th>Số điện thoại</th>
+                                <th>Tài khoản Gmail</th>
+                                <th>Ngày tham gia</th>
+                                <th>Thêm</th>
+                                <th>Xóa</th>
+                            </tr>
+                            <tr>
+                                <form action="">
+                                <td><img src="./images/minh1.jpg" alt=""></td>
+                                <td><p>Bùi Quang Minh</p></td>
+                                <td><p>0706162561</p></td>
+                                <td><p>minhbê203gmail.com</p></td>
+                                <td><p>17/99/2003</p></td>
+                                <td><button type="submit"><i class="fa-solid fa-user-pen"></i></button></td>
+                                <td><button type="submit"><i class="fa-solid fa-user-xmark"></i></button></td>
+                                </form>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="member__container grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+
+        <input hidden type="checkbox" id="formUpSert">
+        <label for="formUpSert" class="nav__overlay"></label>
+        <form for="formUpSert" class="formUpSert__form task-form__container">
+            <p class="formUpSert__title">CẬP NHẬT LICH TRÌNH HỌC VIÊN</p>
+            <div style="overflow: auto; margin: 20px">
+                <table class="task__table">
+                    <tr>
+                        <th>Thứ 2</th>
+                        <th>Thứ 3</th>
+                        <th>Thứ 4</th>
+                        <th>Thứ 5</th>
+                        <th>Thứ 6</th>
+                        <th>Thứ 7</th>
+                        <th>Chủ nhật</th>
+                    </tr>
+                    <tr>
+                        <td><textarea rows="5"></textarea></td>
+                        <td><textarea rows="5"></textarea></td>
+                        <td><textarea rows="5"></textarea></td>
+                        <td><textarea rows="5"></textarea></td>
+                        <td><textarea rows="5"></textarea></td>
+                        <td><textarea rows="5"></textarea></td>
+                        <td><textarea rows="5"></textarea></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="task__note">
+                <p>Ghi chú từ huấn luyện viên</p>
+                <textarea rows="10"></textarea>
+            </div>
+            <div class="formUpSert__btn">
+                <button class="" type="submit">Cập nhật</button>
+            </div>
+        </form>
+
+        <div class="member__item">
+            <label class="task-form__btn" for="formUpSert"><i class="fa-solid fa-pen-to-square"></i></label>
+            <img class="member-item__img" src="./images/minh2.jpg" alt="">
+            <div>
+                <p class="member-item__name">Thành Long</p>
+                <p class="member-item__exp">Hạn tới ngày 12/11/2023</p>
+            </div>
+            <div class="member-item__detail">
+                <div class="member-detail">
+                    <div class="member-detail__icon">
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="member-detail__info">Yoga 1-1</p>
+                </div>
+                <div class="member-detail">
+                    <div class="member-detail__icon">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <p class="member-detail__info">0706162561</p>
+                </div>
+                <div class="member-detail">
+                    <div class="member-detail__icon">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <p class="member-detail__info">thanhlong@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MESSAGE CONTAINER -->
+<div id="message-tab" class="tab">
+    <div class="message__container grid grid-cols-4">
+        <div class="message__people col-span-1">
+            <div class="message-people__search">
+                <form action="" class="message-search__form">
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <input class="" type="text" placeholder="Nhập tên học viên">
+                </form>
+                <button class="message-search__icon"><i class="fa-solid fa-user-group"></i></i></button>
+            </div>
+            <div class="message_people__group">
+                <div class="message-people__item active">
+                    <div class="message-people__detail">
+                        <img src="./images/minh2.jpg" alt="">
+                        <div class="message-detail__info">
+                            <p>Thành Nguyễn</p>
+                            <p>Online</p>
+                        </div>
+                    </div>
+                    <p class="message-people__text">Chiều này đi mấy giờ</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="message__chatbox col-span-3">
+            <div class="message-chatbox__navbar">
+                <div class="message-navbar__detail">
+                    <img src="./images/minh2.jpg" alt="">
+                    <div class="message-detail__info">
+                        <p>Nguyễn Phú</p>
+                        <p>Online</p>
+                    </div>
+                </div>
+                <div class="message-navbar__link">
+                    <a href=""><i class="fa-solid fa-phone"></i></a>
+                    <a href=""><i class="fa-solid fa-video"></i></a>
+                    <div><i class="fa-solid fa-ellipsis-vertical"></i></div>
+                </div>
+            </div>
+            <div class="message-chatbox__text">
+                <div>
+                    <div class="message-chatbox__left">
+                        <p class="message-chatbox__sender">What are u going to do?What are u going to doWhat are u going to doWhat are u going to doWhat are u going to do</p>
+                    </div>
+                    <div class="message-chatbox__right">
+                        <p class="message-chatbox__receiver">Today, I'm busyToday, I'm busToday, I'm busToday, I'm busToday, I'm busToday, I'm busToday, I'm busToday, I'm busToday, I'm bus</p>
+                    </div>
+                    <div class="message-chatbox__left">
+                        <p class="message-chatbox__sender">1</p>
+                    </div>
+                    <div class="message-chatbox__right">
+                        <p class="message-chatbox__receiver">2</p>
+                    </div>
+                </div>
+            </div>
+            <div class="message-chatbox__option">
+                <form action="">
+                    <label class="message-chatbox__img" for="img_upload"><i class="fa-regular fa-image"></i></label>
+                    <input id="img_upload" hidden type="file">
+                    <input class="message-chatbox__input" type="text">
+                    <button class="message-chatbox__send" type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- SCHEDULE CONTAINER -->
+<div id="schedule-tab" class="tab">
+    <div class="search__container">
+        <div class="search-item__title">
+            <p>LỊCH TRÌNH TUẦN</p>
+            <P>Hãy sắp xếp thời gian hợp lý cho học viên</P>
+        </div>
+        <div class="dropdown__list">
+            <div class="dropdown__btn">
+                <p>Chọn tuần</p>
+                <i class="fa-solid fa-caret-down"></i>
+            </div>
+            <ul class="dropdown-list">
+                <li>Tuần 1</li>
+                <li>Tuần 2</li>
+                <li>Tuần 3</li>
+            </ul>
+        </div>
+    </div>
+    <div class="schedule__container">
+        <table class="schedule__table">
+            <tr class="schedule-table__header">
+                <th><i class="fa-regular fa-calendar"></i></th>
+                <th>Thứ 2</th>
+                <th>Thứ 3</th>
+                <th>Thứ 4</th>
+                <th>Thứ 5</th>
+                <th>Thứ 6</th>
+                <th>Thứ 7</th>
+                <th>Chủ nhật</th>
+            </tr>
+            <tr class="schedule-table__row">
+                <td>6:00 AM</td>
+                <td><textarea rows="5"></textarea></td>
+                <td><textarea rows="5"></textarea></td>
+                <td><textarea rows="5"></textarea></td>
+                <td><textarea rows="5"></textarea></td>
+                <td><textarea rows="5"></textarea></td>
+                <td><textarea rows="5"></textarea></td>
+                <td><textarea rows="5"></textarea></td>
+            </tr>
+            <tr class="schedule-table__row">
+                <td>9:00 AM</td>
+                <td><textarea rows="5"></textarea></td>
+                <td><textarea rows="5"></textarea></td>
+                <td><textarea rows="5"></textarea></td>
+                <td><textarea rows="5"></textarea></td>
+                <td><textarea rows="5"></textarea></td>
+                <td><textarea rows="5"></textarea></td>
+                <td><textarea rows="5"></textarea></td>
+            </tr>
+            <tr class="schedule-table__row">
+                <td>2:00 PM</td>
+                <td><textarea rows="5"></textarea></td>
+                <td><textarea rows="5"></textarea></td>
+                <td><textarea rows="5"></textarea></td>
+                <td><textarea rows="5"></textarea></td>
+                <td><textarea rows="5"></textarea></td>
+                <td><textarea rows="5"></textarea></td>
+                <td><textarea rows="5"></textarea></td>
+            </tr>
+            <tr class="schedule-table__row">
+                <td>5:00 PM</td>
+                <td><textarea rows="5"></textarea></td>
+                <td><textarea rows="5"></textarea></td>
+                <td><textarea rows="5"></textarea></td>
+                <td><textarea rows="5"></textarea></td>
+                <td><textarea rows="5"></textarea></td>
+                <td><textarea rows="5"></textarea></td>
+                <td><textarea rows="5"></textarea></td>
+            </tr>
+            <tr class="schedule-table__row">
+                <td>8:00 PM</td>
+                <td><textarea rows="5"></textarea></td>
+                <td><textarea rows="5"></textarea></td>
+                <td><textarea rows="5"></textarea></td>
+                <td><textarea rows="5"></textarea></td>
+                <td><textarea rows="5"></textarea></td>
+                <td><textarea rows="5"></textarea></td>
+                <td><textarea rows="5"></textarea></td>
+            </tr>
+        </table>
+    </div>
+</div>

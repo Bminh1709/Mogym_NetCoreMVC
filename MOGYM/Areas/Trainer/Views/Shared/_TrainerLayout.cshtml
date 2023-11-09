@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/combinedUser.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/trainer.css" asp-append-version="true">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="grid grid-cols-6">
+        <div class="sidebar__container col-span-1">
+            <p class="sidebar__brand">MOGYM</p>
+            <div class="sidebar__item">
+                <p class="sidebar-item__title">DANH MỤC</p>
+                <div class="sidebar-item__menu">
+                    <div class="sidebar-menu member-tab active" onclick="showTab('member-tab')">
+                        <i class="fa-solid fa-users"></i>
+                        <p>Học viên</p>
+                    </div>
+                    <div class="sidebar-menu message-tab" onclick="showTab('message-tab')">
+                        <i class="fa-solid fa-message"></i>
+                        <p>Tin nhắn</p>
+                    </div>
+                    <div class="sidebar-menu schedule-tab" onclick="showTab('schedule-tab')">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <p>Lịch trình</p>
+                    </div>
+                </div>
+                <div class="sidebar-item__link">
+                    <div>
+                        <i class="fa-solid fa-braille"></i>
+                        <p style="margin-top: 8px;">
+                            GET FIT, STRONG<br>
+                            & MOTIVATED
+                        </p>
+                    </div>
+                    <i class="fa-solid fa-arrow-right-long"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="main__container col-span-6 xl:col-span-5">
+
+            <div class="navbar__container">
+                <div class="navbar__responsive">
+                    <label for="navbar-responsive__ckbox" class="navbar-responsive__icon"><i class="fa-solid fa-bars"></i></label>
+                    <input hidden type="checkbox" id="navbar-responsive__ckbox" class="navbar-responsive__ckbox">
+                    <label for="navbar-responsive__ckbox" class="nav__overlay"></label>
+                    <div class="navbar-responsive__item">
+                        <a href="/"><p class="navbar-item__title">MOGYM</p></a>
+                        <div class="separator-line"></div>
+                        <a onclick="showTab('member-tab')">Học viên</a>
+                        <a onclick="showTab('message-tab')">Tin nhắn</a>
+                        <a onclick="showTab('schedule-tab')">Lịch trình</a>
+                    </div>
+                </div>
+                <div class="navbar__item">
+                    <label for="formUpdateInfo" class="infoForm__btn"><i class="fa-solid fa-ellipsis-vertical"></i></label>
+                    <div class="navbar-item__info">
+                        <img class="navbar-info__img" src="~/Image/System/System/minh2.jpg" alt="">
+                        <div class="navbar-info__detail">
+                            <p>Bùi Minh</p>
+                            <p>Huấn luyện viên thể hình</p>
+                        </div>
+                    </div>
+                    <a class="navbar-item__logout" href=""><i class="fa-solid fa-right-from-bracket"></i></a>
+                </div>
+
+                <input hidden type="checkbox" id="formUpdateInfo">
+                <label for="formUpdateInfo" class="nav__overlay"></label>
+                <form class="formUpSert__form info__form">
+                    <p class="formUpSert__title">CẬP NHẬT THÔNG TIN</p>
+                    <div class="info-form__detail">
+                        <div class="info-detail__title">
+                            <p>Tên</p>
+                            <p>Số điện thoại</p>
+                            <p>Tài khoản gmail</p>
+                            <p>Hình ảnh</p>
+                        </div>
+                        <div class="info-detail__input">
+                            <input type="text">
+                            <input type="text">
+                            <input type="text">
+                            <input type="file">
+                        </div>
+                    </div>
+                    <div class="formUpSert__btn">
+                        <button class="" type="submit">Cập nhật</button>
+                    </div>
+                </form>
+
+            </div>
+
+            @RenderBody()
+
+        </div>
+    </div>
+
+</body>
+<script src="~/js/tabShifter.js"></script>
+</html>
+

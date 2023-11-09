@@ -1,0 +1,97 @@
+﻿.feedback-view__container {
+    padding: 0 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.feedback-view__item {
+    border: 2px solid var(--MyPink);
+    padding: 15px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+    .feedback-view__item:hover * {
+        font-size: 18px;
+    }
+
+    .feedback-view__item:hover .feedback-view__emoj {
+        font-size: 45px;
+    }
+
+.feedback-view__date {
+    font-weight: 500;
+    color: gray;
+}
+
+.feedback-view__info {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.feedback-view__emoj {
+    font-size: 35px;
+}
+
+.feedback-view__user p:first-of-type {
+    font-weight: 500;
+}
+
+.feedback-view__user p:last-of-type {
+    color: grey;
+    font-size: 14px;
+}
+
+.feedback-view__text {
+    font-size: 15px;
+}
+
+
+
+/* ==== USER TABLE ==== */
+.account__container {
+    margin: 0 32px;
+    overflow: auto;
+}
+
+.admin__table {
+    min-width: 800px;
+    width: 100%;
+    table-layout: fixed;
+}
+
+    .admin__table th {
+        background-color: var(--MyPink);
+        padding: 12px 0;
+        color: white;
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+        .admin__table th:first-child {
+            border-radius: 10px 0 0 0;
+        }
+
+        .admin__table th:last-child {
+            border-radius: 0 10px 0 0;
+            width: 100px;
+        }
+
+    .admin__table td {
+        background-color: white;
+        padding: 15px 5px;
+        text-align: center;
+        font-size: 14px;
+    }
+
+        .admin__table td p {
+            word-break: break-all;
+        }
+
+        .admin__table td:last-of-type {
+            font-size: 18px;
+        }
