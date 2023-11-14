@@ -5,7 +5,52 @@
 
 <!-- SERVICE CONTAINER -->
 <div id="service-tab" class="tab active">
-    @await Component.InvokeAsync("Service")
+    <div class="search__container">
+        <div class="search-item__title">
+            <p>CÁC GÓI DỊCH VỤ</p>
+            <P>Liên hệ nhân viên phụ trách để đặt mua</P>
+        </div>
+        <div class="search-item__option">
+            <form action="" class="search-option__form">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <input class="" type="text" placeholder="Nhập tên dịch vụ">
+            </form>
+        </div>
+    </div>
+    <div class="package__container grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div class="package__item">
+            <img class="package-item__img" src="~/Image/System/minh2.jpg" alt="">
+            <div class="package-item__tag">New</div>
+            <div class="package__detail">
+                <div>
+                    <p class="package-item__name">Boxing 1 vs 1</p>
+                    <p class="package-item__des">Bạn sẽ được tập 1 vs 1 với huấn luyện viên chuyên nghiệp</p>
+                </div>
+                <div class="package-item__detail">
+                    <div class="package-detail">
+                        <div class="package-detail__icon">
+                            <i class="fa-solid fa-dollar-sign"></i>
+                        </div>
+                        <p class="package-detail__info">Giá: <span>220.000đ</span></p>
+                    </div>
+                    <div class="package-detail">
+                        <div class="package-detail__icon">
+                            <i class="fa-solid fa-hourglass-start"></i>
+                        </div>
+                        <p class="package-detail__info">Bắt đầu vào: <span>12/5/2023</span></p>
+                    </div>
+                    <div class="package-detail">
+                        <div class="package-detail__icon">
+                            <i class="fa-solid fa-hourglass-end"></i>
+                        </div>
+                        <p class="package-detail__info">Kết thúc vào: <span>12/5/2023</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
 </div>
 
 <!-- MESSAGE CONTAINER -->
@@ -78,10 +123,136 @@
 
 <!-- INFORMATION CONTAINER -->
 <div id="info-tab" class="tab">
-    @await Component.InvokeAsync("Info")
+    <div class="search__container">
+        <div class="search-item__title">
+            <p>THÔNG TIN CÁ NHÂN</p>
+            <P>Hãy kiểm soát các chỉ số thường xuyên</P>
+        </div>
+        <div class="search-item__option">
+            <label for="formUpSert" class="search-option__add">Cập nhật chỉ số</label>
+        </div>
+    </div>
+
+    <input hidden type="checkbox" id="formUpSert">
+    <label for="formUpSert" class="nav__overlay"></label>
+    <form class="formUpSert__form info__form">
+        <p class="formUpSert__title">CẬP NHẬT THÔNG TIN</p>
+        <div class="info-form__detail">
+            <div class="info-detail__title">
+                <p>Chiều cao</p>
+                <p>Cân nặng</p>
+            </div>
+            <div class="info-detail__input">
+                <input type="text">
+                <input type="text">
+            </div>
+        </div>
+        <div class="formUpSert__btn">
+            <button class="" type="submit">Cập nhật</button>
+        </div>
+    </form>
+
+    <div class="info__container">
+        <div class="info__topbar">
+            <div class="info__note">
+                <p>Ghi chú từ huấn luyện viên</p>
+                <p>Free Height icons, logos, symbols in 50+ UI design styles. Download Static and animated Height vector icons and logos for free in PNG, SVG, GIF.</p>
+            </div>
+            <div class="info__indicator">
+                <div class="info-indicator__item">
+                    <div class="info-indicator__detail">
+                        <p>Chiều cao</p>
+                        <p>1m60</p>
+                    </div>
+                    <div class="info-indicator__icon">
+                        <i class="fa-solid fa-up-down"></i>
+                    </div>
+                </div>
+                <div class="info-indicator__item">
+                    <div class="info-indicator__detail">
+                        <p>Cân nặng</p>
+                        <p>60kg</p>
+                    </div>
+                    <div class="info-indicator__icon">
+                        <i class="fa-solid fa-weight-scale"></i>
+                    </div>
+                </div>
+                <div class="info-indicator__item">
+                    <div class="info-indicator__detail">
+                        <p>Chỉ số BMI</p>
+                        <p>4.5</p>
+                    </div>
+                    <div class="info-indicator__icon">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="info-table__container">
+            <table class="info__table">
+                <tr>
+                    <th>Thứ 2</th>
+                    <th>Thứ 3</th>
+                    <th>Thứ 4</th>
+                    <th>Thứ 5</th>
+                    <th>Thứ 6</th>
+                    <th>Thứ 7</th>
+                    <th>Chủ nhật</th>
+                </tr>
+                <tr>
+                    <td>Uức cga</td>
+                    <td>ấd</td>
+                    <td>2222222</td>
+                    <td>2222</td>
+                    <td>444</td>
+                    <td>111</td>
+                    <td>12312</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>
 
 <!-- FEEDBACK CONTAINER -->
 <div id="feedback-tab" class="tab">
-    @await Component.InvokeAsync("Feedback")
+    <div class="search__container">
+        <div class="search-item__title">
+            <p>ĐÁNH GIÁ</p>
+            <P>Hãy cho MOGYM biết về trải nghiệm của bạn nhé</P>
+        </div>
+    </div>
+
+    <form class="feedback__container">
+        <div class="feedback__item">
+            <p class="feedback__title">Mức độ hài lòng</p>
+            <p class="feedback__des">Mức độ hài lòng về dịch vụ tại MOGYM</p>
+            <div class="feedback-item__icon">
+                <p>😠</p>
+                <p>😟</p>
+                <p class="active">🙂</p>
+                <p>😊</p>
+                <p>😍</p>
+            </div>
+        </div>
+        <div class="feedback__item">
+            <p class="feedback__title">Chi nhánh</p>
+            <p class="feedback__des">Chi nhánh mogym tại khu vực của bạn</p>
+            <select name="cars" id="cars" class="dropdown__select">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+            </select>
+        </div>
+        <div class="feedback__item">
+            <p class="feedback__title">Lời nhắn</p>
+            <p class="feedback__des">Hãy gửi gắm cảm nhận của bạn tại đây nhé</p>
+            <textarea class="feedback__message" rows="10"></textarea>
+        </div>
+        <div>
+            <button class="feedback__btn" type="submit">Gửi nhận xét</button>
+        </div>
+    </form>
+
+
 </div>

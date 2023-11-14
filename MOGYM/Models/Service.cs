@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MOGYM.Models
 {
-    public class Service
+    public class ServiceModel
     {
         [Key]
         public int Id { get; set; }
@@ -17,6 +17,6 @@ namespace MOGYM.Models
         public DateTime StartDate { get; set; } = DateTime.Now;
         public DateTime EndDate { get; set; }
         public string? Image { get; set; }
-        public Branch Branch { get; set; }
+        public BranchModel Branch { get; set; }
     }
 }

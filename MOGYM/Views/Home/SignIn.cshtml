@@ -5,18 +5,19 @@
 <div class="login__container">
     <span class="bg_blur blur-right"></span>
     <p class="login__title">Đăng nhập</p>
-    <form action="" id="" class="login__form">
+    <form method="post" asp-controller="Home" asp-action="SignIn" class="login__form">
         <div class="login__item">
             <label for="">Tài khoản</label>
-            <input type="text" name="username" id="username" placeholder="Số điện thoại" class="">
+            <input type="text" name="gmail" id="username" placeholder="Số điện thoại">
         </div>
         <div class="login__item login__password">
             <label for="">Mật khẩu</label>
-            <input type="password" name="password" id="password" placeholder="Mật khẩu" class="">
-            <i class="fa-solid fa-eye"></i>
+            <input type="password" name="password" id="passwordInput" placeholder="Nhập mật khẩu tại đây">
+            <i id="togglePassword" class="fa-solid fa-eye"></i>
         </div>
         <div class="login__btn">
             <input type="submit" value="Đăng nhập" class="">
+            <span class="error__message">@ViewBag.ErrorMessage</span>
         </div>
     </form>
 </div>

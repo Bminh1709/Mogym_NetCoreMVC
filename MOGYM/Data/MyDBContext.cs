@@ -7,19 +7,22 @@ namespace MOGYM.Data
     {
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options) { }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<UserModel>().UseTptMappingStrategy();
+        }
 
-        #region DbSet
+        #region DbSetAdminModel
+        public DbSet<UserModel> Users { get; set; }
+        public DbSet<AdminModel> Admins { get; set; }
+        public DbSet<TraineeModel> Trainees { get; set; }
+        public DbSet<TrainerModel> Trainers { get; set; }
 
-        public DbSet<User> Users { get; set; }
-        public DbSet<Admin> Admins { get; set; }
-        public DbSet<Trainee> Trainees { get; set; }
-        public DbSet<Trainer> Trainers { get; set; }
-
-        public DbSet<Service> Services { get; set; }
-        public DbSet<Feedback> Feedbacks { get; set; }
-        public DbSet<Branch> Branches { get; set; }
-        public DbSet<WorkoutSchedule> WorkoutSchedules { get; set; }
-        public DbSet<TimeTable> TimeTables { get; set; }
+        public DbSet<ServiceModel> Services { get; set; }
+        public DbSet<FeedbackModel> Feedbacks { get; set; }
+        public DbSet<BranchModel> Branches { get; set; }
+        public DbSet<WorkoutScheduleModel> WorkoutSchedules { get; set; }
+        public DbSet<TimeTableModel> TimeTables { get; set; }
 
         #endregion
     }

@@ -16,28 +16,32 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Project IT\mogym\SourceBE\MOGYM\MOGYM
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Project IT/mogym/SourceBE/MOGYM/MOGYM/Areas/Admin/Views/Account/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWNjb3VudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project IT/mogym/SourceBE/MOGYM/MOGYM/Areas/Admin/Views/Feedback/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRmVlZGJhY2tcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Project IT/mogym/SourceBE/MOGYM/MOGYM/Areas/Admin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project IT/mogym/SourceBE/MOGYM/MOGYM/Areas/Admin/Views/Message/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVzc2FnZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Project IT/mogym/SourceBE/MOGYM/MOGYM/Areas/Admin/Views/Shared/_AdminLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Project IT/mogym/SourceBE/MOGYM/MOGYM/Areas/Admin/Views/Trainer/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVHJhaW5lclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Project IT/mogym/SourceBE/MOGYM/MOGYM/Areas/Trainee/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVHJhaW5lZVxWaWV3c1xIb21lXEluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Project IT/mogym/SourceBE/MOGYM/MOGYM/Areas/Trainee/Views/Shared/Components/Feedback/Default.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVHJhaW5lZVxWaWV3c1xTaGFyZWRcQ29tcG9uZW50c1xGZWVkYmFja1xEZWZhdWx0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Project IT/mogym/SourceBE/MOGYM/MOGYM/Areas/Trainee/Views/Shared/Components/Info/Default.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVHJhaW5lZVxWaWV3c1xTaGFyZWRcQ29tcG9uZW50c1xJbmZvXERlZmF1bHQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Project IT/mogym/SourceBE/MOGYM/MOGYM/Areas/Trainee/Views/Shared/Components/Service/Default.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVHJhaW5lZVxWaWV3c1xTaGFyZWRcQ29tcG9uZW50c1xTZXJ2aWNlXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Project IT/mogym/SourceBE/MOGYM/MOGYM/Areas/Trainee/Views/Shared/_TraineeLayout.cshtml]

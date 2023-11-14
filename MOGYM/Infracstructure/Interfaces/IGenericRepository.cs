@@ -1,11 +1,11 @@
 ﻿namespace MOGYM.Infracstructure.Interfaces
 {
-    public interface IGenericRepository<TResponse, Key>
+    public interface IGenericRepository<T> where T : class
     {
-        Task<IEnumerable<TResponse>> GetAll();
-        Task<TResponse> Get(Key key);
-        Task<TResponse> Create(TResponse request);
-        Task<bool> Update(Key key, TResponse request);
-        Task<bool> Delete(Key key);
+        Task<IEnumerable<T>> GetAll();
+        Task<T> Get(int id);
+        Task<bool> Create(T model);
+        Task<bool> Update(T model);
+        Task<bool> Delete(T model);
     }
 }

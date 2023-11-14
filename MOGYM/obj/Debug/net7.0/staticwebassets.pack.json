@@ -5,6 +5,34 @@
       "PackagePath": "staticwebassets\\MOGYM.bundle.scp.css"
     },
     {
+      "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\Image\\Avatar\\18cf216872304016bdfc5a135b233fd9_6caf9a5e658eaad0f39f.jpg",
+      "PackagePath": "staticwebassets\\Image\\Avatar\\18cf216872304016bdfc5a135b233fd9_6caf9a5e658eaad0f39f.jpg"
+    },
+    {
+      "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\Image\\Avatar\\524f0b519c754f40a05ef238a169b35dgoTA.png",
+      "PackagePath": "staticwebassets\\Image\\Avatar\\524f0b519c754f40a05ef238a169b35dgoTA.png"
+    },
+    {
+      "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\Image\\Avatar\\a6059c2d070240f88d79a6bd1820c3c5_z4521248027525_b86f8813c3911c2335f574ad39b3c429.jpg",
+      "PackagePath": "staticwebassets\\Image\\Avatar\\a6059c2d070240f88d79a6bd1820c3c5_z4521248027525_b86f8813c3911c2335f574ad39b3c429.jpg"
+    },
+    {
+      "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\Image\\Avatar\\bbf7e397908a49e0b1a77ac61d8e6553_meo.jpg",
+      "PackagePath": "staticwebassets\\Image\\Avatar\\bbf7e397908a49e0b1a77ac61d8e6553_meo.jpg"
+    },
+    {
+      "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\Image\\Avatar\\c951f45b640d4ff481007832e76598acCL-Start.png",
+      "PackagePath": "staticwebassets\\Image\\Avatar\\c951f45b640d4ff481007832e76598acCL-Start.png"
+    },
+    {
+      "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\Image\\Avatar\\e11e548863ed4ecea8fd13e4b361a10e_mit.jpg",
+      "PackagePath": "staticwebassets\\Image\\Avatar\\e11e548863ed4ecea8fd13e4b361a10e_mit.jpg"
+    },
+    {
+      "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\Image\\Avatar\\goTA.png",
+      "PackagePath": "staticwebassets\\Image\\Avatar\\goTA.png"
+    },
+    {
       "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\Image\\System\\aerobic.jpg",
       "PackagePath": "staticwebassets\\Image\\System\\aerobic.jpg"
     },
@@ -107,6 +135,10 @@
     {
       "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\js\\adminAccountAjax.js",
+      "PackagePath": "staticwebassets\\js\\adminAccountAjax.js"
     },
     {
       "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\js\\home.js",

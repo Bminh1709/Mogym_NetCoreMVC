@@ -1,57 +1,77 @@
 ﻿using MOGYM.Infracstructure.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using Azure.Core;
 
 namespace MOGYM.Infracstructure.Repositories
 {
-    public class BaseRepository<TResponse, Key> : IGenericRepository<TResponse, Key> where TResponse : class
+    public class BaseRepository<T> : IDisposable, IGenericRepository<T> where T : class
     {
-        private readonly DbContext _dbContext;
+        protected readonly DbContext _dbContext;
+        protected DbSet<T> _entities;
+        protected bool _disposed = false;
 
         public BaseRepository(DbContext dbContext)
         {
             _dbContext = dbContext;
+            _entities = _dbContext.Set<T>();
         }
 
-        public async Task<TResponse> Get(Key key)
+        public virtual async Task<T> Get(int id)
         {
-            return await _dbContext.Set<TResponse>().FindAsync(key);
+            return await _entities.FindAsync(id);
         }
 
-        public async Task<IEnumerable<TResponse>> GetAll()
+        public virtual async Task<IEnumerable<T>> GetAll()
         {
-            return await _dbContext.Set<TResponse>().ToListAsync();
+            return await _entities.ToListAsync();
         }
 
-        public async Task<TResponse> Create(TResponse request)
+        public virtual async Task<bool> Create(T model)
         {
-            _dbContext.Set<TResponse>().Add(request);
-            await _dbContext.SaveChangesAsync();
-            return request;
+            _entities.Add(model);
+            var created = await _dbContext.SaveChangesAsync();
+            return created > 0;
         }
 
-        public async Task<bool> Update(Key key, TResponse request)
+        public virtual async Task<bool> Update(T model)
+        {       
+            _dbContext.Update(model);
+            var saved = await _dbContext.SaveChangesAsync();
+            return saved > 0;
+        }
+
+        public virtual async Task<bool> Delete(T model)
         {
-            var entity = await _dbContext.Set<TResponse>().FindAsync(key);
-            if (entity != null)
+            _dbContext.Set<T>().Remove(model);
+            var deleted = await _dbContext.SaveChangesAsync();
+            return deleted > 0;
+        }
+
+        // Method to perform actual cleanup
+        protected virtual void Dispose(bool disposing)
+        {
+            // Check if the object has not been disposed
+            if (!_disposed)
             {
-                _dbContext.Update(request);
-                var saved = await _dbContext.SaveChangesAsync();
-                return saved > 0;
+                // If disposing is true, it means Dispose is called explicitly by client code
+                if (disposing)
+                {
+                    // Release managed resources (in this case, the _dbContext object)
+                    _dbContext.Dispose();
+                }
+
+                // Set the disposed flag to true to indicate that the object has been disposed
+                _disposed = true;
             }
-            return false;
         }
 
-        public async Task<bool> Delete(Key key)
+        // Public method that clients call to dispose of the object
+        public void Dispose()
         {
-            var entity = await _dbContext.Set<TResponse>().FindAsync(key);
-            if (entity != null)
-            {
-                _dbContext.Set<TResponse>().Remove(entity);
-                var deleted = await _dbContext.SaveChangesAsync();
-                return deleted > 0;
-            }
-            return false;
+            // The object will be cleaned up by the Dispose method.
+            Dispose(true);
+            // Call GC.SuppressFinalize to take this object off the finalization queue
+            // Prevent finalization code for this object from executing a second time.
+            GC.SuppressFinalize(this);
         }
     }
 

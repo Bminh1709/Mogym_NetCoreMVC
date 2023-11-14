@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MOGYM.Models
 {
-    public class Admin : User
+    public class AdminModel : UserModel
     {
-        public Branch? Branch { get; set; }
-        public ICollection<Trainer>? Trainers { get; set; }
+        public ICollection<TrainerModel>? Trainers { get; set; }
     }
 }

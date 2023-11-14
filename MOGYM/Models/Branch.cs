@@ -2,7 +2,7 @@
 
 namespace MOGYM.Models
 {
-    public class Branch
+    public class BranchModel
     {
         [Key]
         public int Id { get; set; }

@@ -1,0 +1,77 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.AdminNav = "Message";
+    ViewData["Title"] = "Tin nhắn";
+    Layout = "../Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="message__container grid grid-cols-4">
+    <div class="message__people col-span-1">
+        <div class="message-people__search">
+            <form action="" class="message-search__form">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <input class="" type="text" placeholder="Nhập tên học viên">
+            </form>
+            <button class="message-search__icon"><i class="fa-solid fa-user-group"></i></button>
+        </div>
+        <div class="message_people__group">
+            <div class="message-people__item active">
+                <div class="message-people__detail">
+                    <img src="./images/minh2.jpg" alt="">
+                    <div class="message-detail__info">
+                        <p>Thành Nguyễn</p>
+                        <p>Online</p>
+                    </div>
+                </div>
+                <p class="message-people__text">Chiều này đi mấy giờ</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="message__chatbox col-span-3">
+        <div class="message-chatbox__navbar">
+            <div class="message-navbar__detail">
+                <img src="./images/minh2.jpg" alt="">
+                <div class="message-detail__info">
+                    <p>Nguyễn Phú</p>
+                    <p>Online</p>
+                </div>
+            </div>
+            <div class="message-navbar__link">
+                <a href=""><i class="fa-solid fa-phone"></i></a>
+                <a href=""><i class="fa-solid fa-video"></i></a>
+                <div><i class="fa-solid fa-ellipsis-vertical"></i></div>
+            </div>
+        </div>
+        <div class="message-chatbox__text">
+            <div>
+                <div class="message-chatbox__left">
+                    <p class="message-chatbox__sender">What are u going to do?What are u going to doWhat are u going to doWhat are u going to doWhat are u going to do</p>
+                </div>
+                <div class="message-chatbox__right">
+                    <p class="message-chatbox__receiver">Today, I'm busyToday, I'm busToday, I'm busToday, I'm busToday, I'm busToday, I'm busToday, I'm busToday, I'm busToday, I'm bus</p>
+                </div>
+                <div class="message-chatbox__left">
+                    <p class="message-chatbox__sender">1</p>
+                </div>
+                <div class="message-chatbox__right">
+                    <p class="message-chatbox__receiver">2</p>
+                </div>
+            </div>
+        </div>
+        <div class="message-chatbox__option">
+            <form action="">
+                <label class="message-chatbox__img" for="img_upload"><i class="fa-regular fa-image"></i></label>
+                <input id="img_upload" hidden type="file">
+                <input class="message-chatbox__input" type="text">
+                <button class="message-chatbox__send" type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
