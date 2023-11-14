@@ -1,0 +1,86 @@
+﻿@model IEnumerable<UserModel>
+@{
+    ViewBag.AdminNav = "Account";
+    ViewData["Title"] = "Tài khoản";
+    Layout = "../Shared/_AdminLayout.cshtml";
+    var branches = ViewData["Branches"];
+}
+
+<!-- ACCOUNT CONTAINER -->
+<div class="search__container">
+    <div class="search-item__title">
+        <p>QUẢN LÝ TÀI KHOẢN</p>
+        <P>Lưu ý xác định rõ người sử dụng</P>
+    </div>
+    <div class="search-item__option">
+        <form method="post" class="search-option__form">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <input value="@ViewBag.Filter" class="" name="filter" type="text" placeholder="Nhập tên người dùng">
+        </form>
+    </div>
+</div>
+
+<input hidden type="checkbox" id="formUpdateRole">
+<label for="formUpdateRole" class="nav__overlay"></label>
+<form for="formUpdateRole" class="formUpSert__form account-form__container" method="post" asp-action="SetRole">
+    <p class="formUpSert__title">CẬP NHẬT THÔNG TIN</p>
+    <input id="userIdInput" name="userId" type="number" readonly hidden/>
+    <div class="account__form">
+        <select name="branchId" class="dropdown__select">
+            @if (branches != null)
+            {
+                @foreach (var branch in branches as List<BranchModel>)
+                {
+                    <option value="@branch.Id">@branch.Location</option>
+                }
+            }
+        </select>
+        <select name="roleId" class="dropdown__select">
+            <option value="2">Huấn luyên viên</option>
+            <option value="3">Học viên</option>
+        </select>
+    </div>
+    <div class="formUpSert__btn">
+        <button class="" type="submit">Cập nhật</button>
+    </div>
+</form>
+
+<div class="account__container">
+    <table class="admin__table">
+        <tr>
+            <th>Tên</th>
+            <th>Số điện thoại</th>
+            <th>Tài khoản Gmail</th>
+            <th>Ngày tham gia</th>
+            <th>Loại</th>
+            <th>Đổi loại</th>
+        </tr>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td><p>@user.Name</p></td>
+                <td><p>@user.PhoneNumber</p></td>
+                <td><p>@user.Gmail</p></td>
+                <td><p>@user.JoinedDate.ToShortDateString()</p></td>
+                @if (user is TrainerModel)
+                {
+                    <td><p>Huấn luyện viên</p></td>
+                }
+                else if (user is TraineeModel)
+                {
+                    <td><p>Học viên</p></td>
+                }
+                else
+                {
+                    <td><p>Người mới</p></td>
+                }
+                <td><label class="account-btn" for="formUpdateRole" data-id="@user.Id"><i class="fa-solid fa-pen-to-square"></i></label></td>
+            </tr>
+        }
+    </table>
+</div>
+
+@section Scripts {
+    <script type="text/javascript" src="~/js/adminAccountAjax.js" asp-append-version="true"></script>
+}
+

@@ -25,8 +25,15 @@
                 <a href="#services" class="nav-link">Dịch vụ</a>
                 <a href="#contact" class="nav-link">Liên hệ</a>
                 <div class="separator">|</div>
-                <a class="nav-link" asp-controller="Home" asp-action="SignIn">Đăng nhập</a>
-                <a class="nav-link" asp-controller="Home" asp-action="SignUp">Đăng ký</a>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a class="nav-link" asp-controller="Home" asp-action="LogOut">Đăng xuất</a>
+                }
+                else
+                {
+                    <a class="nav-link" asp-controller="Home" asp-action="SignIn">Đăng nhập</a>
+                    <a class="nav-link" asp-controller="Home" asp-action="SignUp">Đăng ký</a>
+                }
             </div>
 
             <!-- Responsive navbar -->
@@ -39,8 +46,15 @@
                 <a href="/" class="nav-link">Trang chủ</a>
                 <a href="#services" class="nav-link">Dịch vụ</a>
                 <a href="#contact" class="nav-link">Liên hệ</a>
-                <a asp-controller="Home" asp-action="SignIn" class="nav-link">Đăng nhập</a>
-                <a asp-controller="Home" asp-action="SignUp" class="nav-link">Đăng ký</a>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a asp-controller="Home" asp-action="SignOut" class="nav-link">Đăng xuất</a>
+                }
+                else
+                {
+                    <a asp-controller="Home" asp-action="SignIn" class="nav-link">Đăng nhập</a>
+                    <a asp-controller="Home" asp-action="SignUp" class="nav-link">Đăng ký</a>
+                }
             </div>
         </div>
     </div>

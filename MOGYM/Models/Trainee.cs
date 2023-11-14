@@ -1,13 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MOGYM.Models
 {
-    public class Trainee : User
+    public class TraineeModel : UserModel
     {
         public int? Weight { get; set; }
         public int? Height { get; set; }
         public string? Note { get; set; }
-        public Trainer? Trainer { get; set;}
-        public Branch? Branch { get; set; }
+        public TrainerModel? Trainer { get; set;}
     }
 }

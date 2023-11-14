@@ -73,7 +73,7 @@
 .nav-right {
     font-size: 14px;
     display: none;
-    gap: 24px;
+    gap: 20px;
 }
 
 .nav-link:hover {
@@ -592,10 +592,10 @@
     width: fit-content;
     margin: auto;
     border: 1px solid var(--MyDarkGray);
-    padding: 40px;
+    padding: 30px 40px 15px 40px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
     width: 60%;
     box-sizing: unset;
 }
@@ -615,12 +615,15 @@
 .login__password {
     position: relative;
 }
+    .login__password input {
+        width: 100%;
+    }
 
     .login__password i {
         position: absolute;
         font-size: 20px;
         color: grey;
-        bottom: 14px;
+        bottom: 15px;
         right: 12px;
     }
 
@@ -629,8 +632,11 @@
         }
 
 .login__btn {
-    margin: auto;
-    width: fit-content;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
 }
 
     .login__btn input {
@@ -669,6 +675,12 @@
         background-color: var(--MyPink);
         color: white;
     }
+
+.error__message {
+    color: red;
+    font-size: 14px;
+    text-align: center;
+}
 
 @media (min-width: 640px) {
     /* === HOME === */

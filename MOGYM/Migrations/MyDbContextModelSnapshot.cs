@@ -22,7 +22,7 @@ namespace MOGYM.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("MOGYM.Models.Branch", b =>
+            modelBuilder.Entity("MOGYM.Models.BranchModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -44,7 +44,7 @@ namespace MOGYM.Migrations
                     b.ToTable("Branches");
                 });
 
-            modelBuilder.Entity("MOGYM.Models.Feedback", b =>
+            modelBuilder.Entity("MOGYM.Models.FeedbackModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -73,7 +73,7 @@ namespace MOGYM.Migrations
                     b.ToTable("Feedbacks");
                 });
 
-            modelBuilder.Entity("MOGYM.Models.Service", b =>
+            modelBuilder.Entity("MOGYM.Models.ServiceModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -111,7 +111,7 @@ namespace MOGYM.Migrations
                     b.ToTable("Services");
                 });
 
-            modelBuilder.Entity("MOGYM.Models.TimeTable", b =>
+            modelBuilder.Entity("MOGYM.Models.TimeTableModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -141,7 +141,7 @@ namespace MOGYM.Migrations
                     b.ToTable("TimeTables");
                 });
 
-            modelBuilder.Entity("MOGYM.Models.User", b =>
+            modelBuilder.Entity("MOGYM.Models.UserModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -152,13 +152,15 @@ namespace MOGYM.Migrations
                     b.Property<string>("Avatar")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("BranchId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Gmail")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("JoinedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -169,18 +171,19 @@ namespace MOGYM.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("BranchId");
+
                     b.ToTable("Users");
 
-                    b.HasDiscriminator<string>("Discriminator").HasValue("User");
-
-                    b.UseTphMappingStrategy();
+                    b.UseTptMappingStrategy();
                 });
 
-            modelBuilder.Entity("MOGYM.Models.WorkoutSchedule", b =>
+            modelBuilder.Entity("MOGYM.Models.WorkoutScheduleModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -207,30 +210,16 @@ namespace MOGYM.Migrations
                     b.ToTable("WorkoutSchedules");
                 });
 
-            modelBuilder.Entity("MOGYM.Models.Admin", b =>
+            modelBuilder.Entity("MOGYM.Models.AdminModel", b =>
                 {
-                    b.HasBaseType("MOGYM.Models.User");
+                    b.HasBaseType("MOGYM.Models.UserModel");
 
-                    b.Property<int?>("BranchId")
-                        .HasColumnType("int");
-
-                    b.HasIndex("BranchId");
-
-                    b.ToTable("Users", t =>
-                        {
-                            t.Property("BranchId")
-                                .HasColumnName("Admin_BranchId");
-                        });
-
-                    b.HasDiscriminator().HasValue("Admin");
+                    b.ToTable("Admins");
                 });
 
-            modelBuilder.Entity("MOGYM.Models.Trainee", b =>
+            modelBuilder.Entity("MOGYM.Models.TraineeModel", b =>
                 {
-                    b.HasBaseType("MOGYM.Models.User");
-
-                    b.Property<int?>("BranchId")
-                        .HasColumnType("int");
+                    b.HasBaseType("MOGYM.Models.UserModel");
 
                     b.Property<int?>("Height")
                         .HasColumnType("int");
@@ -244,45 +233,32 @@ namespace MOGYM.Migrations
                     b.Property<int?>("Weight")
                         .HasColumnType("int");
 
-                    b.HasIndex("BranchId");
-
                     b.HasIndex("TrainerId");
 
-                    b.ToTable("Users", t =>
-                        {
-                            t.Property("BranchId")
-                                .HasColumnName("Trainee_BranchId");
-                        });
-
-                    b.HasDiscriminator().HasValue("Trainee");
+                    b.ToTable("Trainees");
                 });
 
-            modelBuilder.Entity("MOGYM.Models.Trainer", b =>
+            modelBuilder.Entity("MOGYM.Models.TrainerModel", b =>
                 {
-                    b.HasBaseType("MOGYM.Models.User");
+                    b.HasBaseType("MOGYM.Models.UserModel");
 
                     b.Property<int?>("AdminId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("BranchId")
-                        .HasColumnType("int");
-
                     b.HasIndex("AdminId");
 
-                    b.HasIndex("BranchId");
-
-                    b.HasDiscriminator().HasValue("Trainer");
+                    b.ToTable("Trainers");
                 });
 
-            modelBuilder.Entity("MOGYM.Models.Feedback", b =>
+            modelBuilder.Entity("MOGYM.Models.FeedbackModel", b =>
                 {
-                    b.HasOne("MOGYM.Models.Branch", "Branch")
+                    b.HasOne("MOGYM.Models.BranchModel", "Branch")
                         .WithMany()
                         .HasForeignKey("BranchId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MOGYM.Models.Trainer", "Trainer")
+                    b.HasOne("MOGYM.Models.TrainerModel", "Trainer")
                         .WithMany()
                         .HasForeignKey("TrainerId");
 
@@ -291,9 +267,9 @@ namespace MOGYM.Migrations
                     b.Navigation("Trainer");
                 });
 
-            modelBuilder.Entity("MOGYM.Models.Service", b =>
+            modelBuilder.Entity("MOGYM.Models.ServiceModel", b =>
                 {
-                    b.HasOne("MOGYM.Models.Branch", "Branch")
+                    b.HasOne("MOGYM.Models.BranchModel", "Branch")
                         .WithMany()
                         .HasForeignKey("BranchId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -302,9 +278,9 @@ namespace MOGYM.Migrations
                     b.Navigation("Branch");
                 });
 
-            modelBuilder.Entity("MOGYM.Models.TimeTable", b =>
+            modelBuilder.Entity("MOGYM.Models.TimeTableModel", b =>
                 {
-                    b.HasOne("MOGYM.Models.Trainer", "Trainer")
+                    b.HasOne("MOGYM.Models.TrainerModel", "Trainer")
                         .WithMany()
                         .HasForeignKey("TrainerId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -313,9 +289,18 @@ namespace MOGYM.Migrations
                     b.Navigation("Trainer");
                 });
 
-            modelBuilder.Entity("MOGYM.Models.WorkoutSchedule", b =>
+            modelBuilder.Entity("MOGYM.Models.UserModel", b =>
                 {
-                    b.HasOne("MOGYM.Models.Trainee", "Trainee")
+                    b.HasOne("MOGYM.Models.BranchModel", "Branch")
+                        .WithMany()
+                        .HasForeignKey("BranchId");
+
+                    b.Navigation("Branch");
+                });
+
+            modelBuilder.Entity("MOGYM.Models.WorkoutScheduleModel", b =>
+                {
+                    b.HasOne("MOGYM.Models.TraineeModel", "Trainee")
                         .WithMany()
                         .HasForeignKey("TraineeId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -324,49 +309,51 @@ namespace MOGYM.Migrations
                     b.Navigation("Trainee");
                 });
 
-            modelBuilder.Entity("MOGYM.Models.Admin", b =>
+            modelBuilder.Entity("MOGYM.Models.AdminModel", b =>
                 {
-                    b.HasOne("MOGYM.Models.Branch", "Branch")
-                        .WithMany()
-                        .HasForeignKey("BranchId");
-
-                    b.Navigation("Branch");
+                    b.HasOne("MOGYM.Models.UserModel", null)
+                        .WithOne()
+                        .HasForeignKey("MOGYM.Models.AdminModel", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
-            modelBuilder.Entity("MOGYM.Models.Trainee", b =>
+            modelBuilder.Entity("MOGYM.Models.TraineeModel", b =>
                 {
-                    b.HasOne("MOGYM.Models.Branch", "Branch")
-                        .WithMany()
-                        .HasForeignKey("BranchId");
+                    b.HasOne("MOGYM.Models.UserModel", null)
+                        .WithOne()
+                        .HasForeignKey("MOGYM.Models.TraineeModel", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("MOGYM.Models.Trainer", "Trainer")
+                    b.HasOne("MOGYM.Models.TrainerModel", "Trainer")
                         .WithMany("Trainees")
                         .HasForeignKey("TrainerId");
-
-                    b.Navigation("Branch");
 
                     b.Navigation("Trainer");
                 });
 
-            modelBuilder.Entity("MOGYM.Models.Trainer", b =>
+            modelBuilder.Entity("MOGYM.Models.TrainerModel", b =>
                 {
-                    b.HasOne("MOGYM.Models.Admin", null)
+                    b.HasOne("MOGYM.Models.AdminModel", "Admin")
                         .WithMany("Trainers")
                         .HasForeignKey("AdminId");
 
-                    b.HasOne("MOGYM.Models.Branch", "Branch")
-                        .WithMany()
-                        .HasForeignKey("BranchId");
+                    b.HasOne("MOGYM.Models.UserModel", null)
+                        .WithOne()
+                        .HasForeignKey("MOGYM.Models.TrainerModel", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Branch");
+                    b.Navigation("Admin");
                 });
 
-            modelBuilder.Entity("MOGYM.Models.Admin", b =>
+            modelBuilder.Entity("MOGYM.Models.AdminModel", b =>
                 {
                     b.Navigation("Trainers");
                 });
 
-            modelBuilder.Entity("MOGYM.Models.Trainer", b =>
+            modelBuilder.Entity("MOGYM.Models.TrainerModel", b =>
                 {
                     b.Navigation("Trainees");
                 });

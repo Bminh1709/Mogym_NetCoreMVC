@@ -1,27 +1,35 @@
-﻿@{
+﻿@model MOGYM.Models.UserModel
+@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
     ViewData["Title"] = "Đăng ký";
 }
 
 <div class="signup__container">
     <span class="bg_blur blur-right"></span>
     <p class="login__title">Đăng ký</p>
-    <form action="" id="" class="login__form">
+    <form class="login__form" method="post" asp-controller="Home" asp-action="SignUp" enctype="multipart/form-data">
         <div class="login__item">
             <label for="">Tên đầy đủ</label>
-            <input type="text" name="name" placeholder="Nhập tên tại đây">
+            <input asp-for="Name" type="text" name="name" placeholder="Nhập tên tại đây" value="@Model?.Name">
+            <span class="error__message" asp-validation-for="Name"></span>
         </div>
         <div class="login__item">
             <label for="">Tài khoản Gmail</label>
-            <input type="email" name="gmail" placeholder="Nhập gmail tại đây">
+            <input asp-for="Gmail" type="email" name="gmail" placeholder="Nhập gmail tại đây" value="@Model?.Gmail">
+            <span class="error__message" asp-validation-for="Gmail"></span>
         </div>
         <div class="login__item">
             <label for="">Số điện thoại</label>
-            <input type="number" name="phone" placeholder="Nhập số điện thoại tại đây">
+            <input asp-for="PhoneNumber" type="number" name="PhoneNumber" placeholder="Nhập số điện thoại tại đây" value="@Model?.PhoneNumber">
+            <span class="error__message" asp-validation-for="PhoneNumber"></span>
         </div>
-        <div class="login__item login__password">
+        <div class="login__item">
             <label for="">Mật khẩu</label>
-            <input type="password" name="password" id="passwordInput" placeholder="Nhập mật khẩu tại đây">
-            <i id="togglePassword" class="fa-solid fa-eye"></i>
+            <div class="login__password">
+                <input asp-for="Password" type="password" name="password" id="passwordInput" placeholder="Nhập mật khẩu tại đây" value="@Model?.Password">
+                <i id="togglePassword" class="fa-solid fa-eye"></i>
+            </div>
+            <span class="error__message" asp-validation-for="Password"></span>
         </div>
         <div class="login__item login__password">
             <label for="">Xác nhận mật khẩu</label>
@@ -29,11 +37,15 @@
         </div>
         <div class="login__item">
             <label for="">Hình ảnh</label>
-            <label class="signup__img" for="signup__img"><i class="fa-solid fa-file-arrow-up"></i><p>Tải ảnh lên</p></label>
-            <input id="signup__img" hidden type="file" name="avatar" accept="image/*">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <label class="signup__img" for="signup__img"><i class="fa-solid fa-file-arrow-up"></i><p>Tải ảnh lên</p></label>
+                <input asp-for="Avatar" id="signup__img" hidden type="file" name="Avatar" accept="image/*">
+                <span class="error__message" asp-validation-for="Avatar"></span>
+            </div>
         </div>
         <div class="login__btn">
-            <input type="submit" value="Đăng ký" class="">
+            <input type="submit" style="width: fit-content;" value="Đăng ký">
+            <span class="error__message">@ViewBag.ErrorMessage</span>
         </div>
     </form>
 </div>

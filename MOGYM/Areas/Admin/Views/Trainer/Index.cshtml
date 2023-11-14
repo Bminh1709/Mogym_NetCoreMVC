@@ -1,0 +1,81 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.AdminNav = "Trainer";
+    ViewData["Title"] = "Huấn luyên viên";
+    Layout = "../Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="search__container">
+    <div class="search-item__title">
+        <p>QUẢN LÝ HUẤN LUYỆN VIÊN</p>
+        <P>Các huấn luyện viên tại chi nhánh</P>
+    </div>
+    <div class="search-item__option">
+        <form action="" class="search-option__form">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <input class="" type="text" placeholder="Nhập tên huấn luyện viên">
+        </form>
+    </div>
+</div>
+
+<div class="member__container grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <input hidden type="checkbox" id="formUpSertTrainer">
+    <label for="formUpSertTrainer" class="nav__overlay"></label>
+    <div for="formUpSertTrainer" class="formUpSert__form trainer-form__container">
+        <p class="formUpSert__title">DANH SÁCH HỌC VIÊN</p>
+        <div style="height: 450px; overflow-y: auto; margin: 20px;">
+            <table class="trainees__table">
+                <tr>
+                    <th>Ảnh</th>
+                    <th>Tên</th>
+                    <th>Số điện thoại</th>
+                    <th>Tài khoản Gmail</th>
+                    <th>Ngày tham gia</th>
+                </tr>
+                <tr>
+                    <form action="">
+                    <td><img src="./images/minh1.jpg" alt=""></td>
+                    <td><p>Bùi Quang Minh</p></td>
+                    <td><p>0706162561</p></td>
+                    <td><p>minhbê203gmail.com</p></td>
+                    <td><p>17/99/2003</p></td>
+                    </form>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="member__item">
+        <label for="formUpSertTrainer" class="task-form__btn"><i class="fa-solid fa-pen-to-square"></i></label>
+        <img class="member-item__img" src="./images/minh2.jpg" alt="">
+        <div>
+            <p class="member-item__name">Thành Long</p>
+            <p class="member-item__exp">Hạn tới ngày 12/11/2023</p>
+        </div>
+        <div class="member-item__detail">
+            <div class="member-detail">
+                <div class="member-detail__icon">
+                    <i class="fa-solid fa-eye"></i>
+                </div>
+                <p class="member-detail__info">15 học viên</p>
+            </div>
+            <div class="member-detail">
+                <div class="member-detail__icon">
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+                <p class="member-detail__info">0706162561</p>
+            </div>
+            <div class="member-detail">
+                <div class="member-detail__icon">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+                <p class="member-detail__info">thanhlong@gmail.com</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+

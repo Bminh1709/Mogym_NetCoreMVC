@@ -1,364 +1,97 @@
 ﻿@{
+    ViewBag.AdminNav = "Service";
     ViewData["Title"] = "Trang chủ";
     Layout = "../Shared/_AdminLayout.cshtml";
 }
 
-<!-- SERVICE CONTAINER -->
-<div id="service-tab" class="tab active">
-    <div class="search__container">
-        <div class="search-item__title">
-            <p>CÁC GÓI DỊCH VỤ</p>
-            <P>Liên hệ nhân viên phụ trách để đặt mua</P>
-        </div>
-        <div class="search-item__option">
-            <form action="" class="search-option__form">
-                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                <input class="" type="text" placeholder="Nhập tên dịch vụ">
-            </form>
-            <label for="formUpSert" class="search-option__add">Thêm dịch vụ</label>
-        </div>
+
+<div class="search__container">
+    <div class="search-item__title">
+        <p>CÁC GÓI DỊCH VỤ</p>
+        <P>Liên hệ nhân viên phụ trách để đặt mua</P>
     </div>
-
-    <input hidden type="checkbox" id="formUpSert">
-    <label for="formUpSert" class="nav__overlay"></label>
-    <form class="formUpSert__form package__form">
-        <p class="formUpSert__title">GÓI DỊCH VỤ</p>
-        <div class="package-form__detail">
-            <div class="package-form__item">
-                <p>Tiêu đề</p>
-                <input type="text">
-            </div>
-            <div class="package-form__item">
-                <p>Mô tả</p>
-                <textarea></textarea>
-            </div>
-            <div class="package-form__item">
-                <p>Giá</p>
-                <input type="number">
-            </div>
-            <div class="package-form__item">
-                <p>Ngày đắt đầu</p>
-                <input type="date">
-            </div>
-            <div class="package-form__item">
-                <p>Ngày kết thúc</p>
-                <input type="date">
-            </div>
-            <div class="package-form__item">
-                <div class="package-form__img">
-                    <img class="package__img" src="./images/minh1.jpg" alt="">
-                    <input id="package-form__img" hidden type="file">
-                </div>
-            </div>
-        </div>
-        <div class="formUpSert__btn">
-            <label for="package-form__img">Chọn ảnh</label>
-            <button class="" type="submit">Cập nhật</button>
-        </div>
-    </form>
-
-    <div class="package__container grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        <div class="package__item">
-            <div class="package__btn">
-                <label class="package-item__edit" for="formUpSert"><i class="fa-solid fa-gear"></i></label>
-                <button class="package-item__remove"><i class="fa-solid fa-circle-minus"></i></button>
-            </div>
-            <img class="package-item__img" src="./images/minh2.jpg" alt="">
-            <div class="package-item__tag">New</div>
-            <div class="package__detail">
-                <div>
-                    <p class="package-item__name">Boxing 1 vs 1</p>
-                    <p class="package-item__des">Bạn sẽ được tập 1 vs 1 với huấn luyện viên chuyên nghiệp</p>
-                </div>
-                <div class="package-item__detail">
-                    <div class="package-detail">
-                        <div class="package-detail__icon">
-                            <i class="fa-solid fa-dollar-sign"></i>
-                        </div>
-                        <p class="package-detail__info">Giá: <span>220.000đ</span></p>
-                    </div>
-                    <div class="package-detail">
-                        <div class="package-detail__icon">
-                            <i class="fa-solid fa-hourglass-start"></i>
-                        </div>
-                        <p class="package-detail__info">Bắt đầu vào: <span>12/5/2023</span></p>
-                    </div>
-                    <div class="package-detail">
-                        <div class="package-detail__icon">
-                            <i class="fa-solid fa-hourglass-end"></i>
-                        </div>
-                        <p class="package-detail__info">Kết thúc vào: <span>12/5/2023</span></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+    <div class="search-item__option">
+        <form action="" class="search-option__form">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <input class="" type="text" placeholder="Nhập tên dịch vụ">
+        </form>
+        <label for="formUpSert" class="search-option__add">Thêm dịch vụ</label>
     </div>
 </div>
 
-<!-- TRAINER CONTAINER -->
-<div id="trainer-tab" class="tab">
-    <div class="search__container">
-        <div class="search-item__title">
-            <p>QUẢN LÝ HUẤN LUYỆN VIÊN</p>
-            <P>Các huấn luyện viên tại chi nhánh</P>
+<input hidden type="checkbox" id="formUpSert">
+<label for="formUpSert" class="nav__overlay"></label>
+<form class="formUpSert__form package__form">
+    <p class="formUpSert__title">GÓI DỊCH VỤ</p>
+    <div class="package-form__detail">
+        <div class="package-form__item">
+            <p>Tiêu đề</p>
+            <input type="text">
         </div>
-        <div class="search-item__option">
-            <form action="" class="search-option__form">
-                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                <input class="" type="text" placeholder="Nhập tên huấn luyện viên">
-            </form>
+        <div class="package-form__item">
+            <p>Mô tả</p>
+            <textarea></textarea>
         </div>
-    </div>
-
-    <div class="member__container grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        <input hidden type="checkbox" id="formUpSertTrainer">
-        <label for="formUpSertTrainer" class="nav__overlay"></label>
-        <div for="formUpSertTrainer" class="formUpSert__form trainer-form__container">
-            <p class="formUpSert__title">DANH SÁCH HỌC VIÊN</p>
-            <div style="height: 450px; overflow-y: auto; margin: 20px;">
-                <table class="trainees__table">
-                    <tr>
-                        <th>Ảnh</th>
-                        <th>Tên</th>
-                        <th>Số điện thoại</th>
-                        <th>Tài khoản Gmail</th>
-                        <th>Ngày tham gia</th>
-                    </tr>
-                    <tr>
-                        <form action="">
-                        <td><img src="./images/minh1.jpg" alt=""></td>
-                        <td><p>Bùi Quang Minh</p></td>
-                        <td><p>0706162561</p></td>
-                        <td><p>minhbê203gmail.com</p></td>
-                        <td><p>17/99/2003</p></td>
-                        </form>
-                    </tr>
-                </table>
+        <div class="package-form__item">
+            <p>Giá</p>
+            <input type="number">
+        </div>
+        <div class="package-form__item">
+            <p>Ngày đắt đầu</p>
+            <input type="date">
+        </div>
+        <div class="package-form__item">
+            <p>Ngày kết thúc</p>
+            <input type="date">
+        </div>
+        <div class="package-form__item">
+            <div class="package-form__img">
+                <img class="package__img" src="./images/minh1.jpg" alt="">
+                <input id="package-form__img" hidden type="file">
             </div>
         </div>
+    </div>
+    <div class="formUpSert__btn">
+        <label for="package-form__img">Chọn ảnh</label>
+        <button class="" type="submit">Cập nhật</button>
+    </div>
+</form>
 
-        <div class="member__item">
-            <label for="formUpSertTrainer" class="task-form__btn"><i class="fa-solid fa-pen-to-square"></i></label>
-            <img class="member-item__img" src="./images/minh2.jpg" alt="">
+<div class="package__container grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <div class="package__item">
+        <div class="package__btn">
+            <label class="package-item__edit" for="formUpSert"><i class="fa-solid fa-gear"></i></label>
+            <button class="package-item__remove"><i class="fa-solid fa-circle-minus"></i></button>
+        </div>
+        <img class="package-item__img" src="./images/minh2.jpg" alt="">
+        <div class="package-item__tag">New</div>
+        <div class="package__detail">
             <div>
-                <p class="member-item__name">Thành Long</p>
-                <p class="member-item__exp">Hạn tới ngày 12/11/2023</p>
+                <p class="package-item__name">Boxing 1 vs 1</p>
+                <p class="package-item__des">Bạn sẽ được tập 1 vs 1 với huấn luyện viên chuyên nghiệp</p>
             </div>
-            <div class="member-item__detail">
-                <div class="member-detail">
-                    <div class="member-detail__icon">
-                        <i class="fa-solid fa-eye"></i>
+            <div class="package-item__detail">
+                <div class="package-detail">
+                    <div class="package-detail__icon">
+                        <i class="fa-solid fa-dollar-sign"></i>
                     </div>
-                    <p class="member-detail__info">15 học viên</p>
+                    <p class="package-detail__info">Giá: <span>220.000đ</span></p>
                 </div>
-                <div class="member-detail">
-                    <div class="member-detail__icon">
-                        <i class="fa-solid fa-phone"></i>
+                <div class="package-detail">
+                    <div class="package-detail__icon">
+                        <i class="fa-solid fa-hourglass-start"></i>
                     </div>
-                    <p class="member-detail__info">0706162561</p>
+                    <p class="package-detail__info">Bắt đầu vào: <span>12/5/2023</span></p>
                 </div>
-                <div class="member-detail">
-                    <div class="member-detail__icon">
-                        <i class="fa-solid fa-envelope"></i>
+                <div class="package-detail">
+                    <div class="package-detail__icon">
+                        <i class="fa-solid fa-hourglass-end"></i>
                     </div>
-                    <p class="member-detail__info">thanhlong@gmail.com</p>
+                    <p class="package-detail__info">Kết thúc vào: <span>12/5/2023</span></p>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MESSAGE CONTAINER -->
-<div id="message-tab" class="tab">
-    <div class="message__container grid grid-cols-4">
-        <div class="message__people col-span-1">
-            <div class="message-people__search">
-                <form action="" class="message-search__form">
-                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    <input class="" type="text" placeholder="Nhập tên học viên">
-                </form>
-                <button class="message-search__icon"><i class="fa-solid fa-user-group"></i></button>
-            </div>
-            <div class="message_people__group">
-                <div class="message-people__item active">
-                    <div class="message-people__detail">
-                        <img src="./images/minh2.jpg" alt="">
-                        <div class="message-detail__info">
-                            <p>Thành Nguyễn</p>
-                            <p>Online</p>
-                        </div>
-                    </div>
-                    <p class="message-people__text">Chiều này đi mấy giờ</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="message__chatbox col-span-3">
-            <div class="message-chatbox__navbar">
-                <div class="message-navbar__detail">
-                    <img src="./images/minh2.jpg" alt="">
-                    <div class="message-detail__info">
-                        <p>Nguyễn Phú</p>
-                        <p>Online</p>
-                    </div>
-                </div>
-                <div class="message-navbar__link">
-                    <a href=""><i class="fa-solid fa-phone"></i></a>
-                    <a href=""><i class="fa-solid fa-video"></i></a>
-                    <div><i class="fa-solid fa-ellipsis-vertical"></i></div>
-                </div>
-            </div>
-            <div class="message-chatbox__text">
-                <div>
-                    <div class="message-chatbox__left">
-                        <p class="message-chatbox__sender">What are u going to do?What are u going to doWhat are u going to doWhat are u going to doWhat are u going to do</p>
-                    </div>
-                    <div class="message-chatbox__right">
-                        <p class="message-chatbox__receiver">Today, I'm busyToday, I'm busToday, I'm busToday, I'm busToday, I'm busToday, I'm busToday, I'm busToday, I'm busToday, I'm bus</p>
-                    </div>
-                    <div class="message-chatbox__left">
-                        <p class="message-chatbox__sender">1</p>
-                    </div>
-                    <div class="message-chatbox__right">
-                        <p class="message-chatbox__receiver">2</p>
-                    </div>
-                </div>
-            </div>
-            <div class="message-chatbox__option">
-                <form action="">
-                    <label class="message-chatbox__img" for="img_upload"><i class="fa-regular fa-image"></i></label>
-                    <input id="img_upload" hidden type="file">
-                    <input class="message-chatbox__input" type="text">
-                    <button class="message-chatbox__send" type="submit"><i class="fa-solid fa-paper-plane"></i></button>
-                </form>
             </div>
         </div>
     </div>
 
 </div>
 
-<!-- FEEDBACK CONTAINER -->
-<div id="feedback-tab" class="tab">
-    <div class="search__container">
-        <div class="search-item__title">
-            <p>ĐÁNH GIÁ TỪ KHÁCH HÀNG</p>
-            <P>Các đánh giá phản ánh chất lượng phục vụ</P>
-        </div>
-        <div class="dropdown__list">
-            <div class="dropdown__btn">
-                <p>Chọn chi nhánh</p>
-                <i class="fa-solid fa-caret-down"></i>
-            </div>
-            <ul class="dropdown-list">
-                <li>Tuần 1</li>
-                <li>Tuần 2</li>
-                <li>Tuần 3</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="feedback-view__container">
-        <div class="feedback-view__item">
-            <p class="feedback-view__date">Ngày 17/20/2023</p>
-            <div class="feedback-view__info">
-                <p class="feedback-view__emoj">😟</p>
-                <div class="feedback-view__user">
-                    <p>Bùi Minh</p>
-                    <p>Chi nhánh Đà Nẵng</p>
-                </div>
-            </div>
-            <p class="feedback-view__text">
-                Feedback UI. Inspirational designs, illustrations, and graphic elements from the world's best designers. Want more inspiration? Browse our search results.
-            </p>
-        </div>
-        <div class="feedback-view__item">
-            <p class="feedback-view__date">Ngày 17/20/2023</p>
-            <div class="feedback-view__info">
-                <p class="feedback-view__emoj">😟</p>
-                <div class="feedback-view__user">
-                    <p>Bùi Minh</p>
-                    <p>Chi nhánh Đà Nẵng</p>
-                </div>
-            </div>
-            <p class="feedback-view__text">
-                Feedback UI. Inspirational designs, illustrations, and graphic elements from the world's best designers. Want more inspiration? Browse our search results.
-            </p>
-        </div>
-        <div class="feedback-view__item">
-            <p class="feedback-view__date">Ngày 17/20/2023</p>
-            <div class="feedback-view__info">
-                <p class="feedback-view__emoj">😟</p>
-                <div class="feedback-view__user">
-                    <p>Bùi Minh</p>
-                    <p>Chi nhánh Đà Nẵng</p>
-                </div>
-            </div>
-            <p class="feedback-view__text">
-                Feedback UI. Inspirational designs, illustrations, and graphic elements from the world's best designers. Want more inspiration? Browse our search results.
-            </p>
-        </div>
-    </div>
-
-</div>
-
-<!-- ACCOUNT CONTAINER -->
-<div id="account-tab" class="tab">
-    <div class="search__container">
-        <div class="search-item__title">
-            <p>QUẢN LÝ TÀI KHOẢN</p>
-            <P>Lưu ý xác định rõ người sử dụng</P>
-        </div>
-        <div class="search-item__option">
-            <form action="" class="search-option__form">
-                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                <input class="" type="text" placeholder="Nhập tên người dùng">
-            </form>
-        </div>
-    </div>
-
-    <input hidden type="checkbox" id="formUpdateRole">
-    <label for="formUpdateRole" class="nav__overlay"></label>
-    <div for="formUpdateRole" class="formUpSert__form account-form__container">
-        <p class="formUpSert__title">CẬP NHẬT THÔNG TIN</p>
-        <div class="account__form">
-            <select name="cars" id="cars" class="dropdown__select">
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
-            </select>
-            <select name="cars" id="cars" class="dropdown__select">
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
-            </select>
-        </div>
-        <div class="formUpSert__btn">
-            <button class="" type="submit">Cập nhật</button>
-        </div>
-    </div>
-
-    <div class="account__container">
-        <table class="admin__table">
-            <tr>
-                <th>Tên</th>
-                <th>Số điện thoại</th>
-                <th>Tài khoản Gmail</th>
-                <th>Ngày tham gia</th>
-                <th>Loại</th>
-                <th>Đổi loại</th>
-            </tr>
-            <tr>
-                <td><p>Bùi Quang Minh</p></td>
-                <td><p>0706162561</p></td>
-                <td><p>minhbê203gmail.com</p></td>
-                <td><p>17/99/2003</p></td>
-                <td><p>Huấn luyện viên</p></td>
-                <td><label for="formUpdateRole"><i class="fa-solid fa-pen-to-square"></i></label></td>
-            </tr>
-        </table>
-    </div>
-
-</div>

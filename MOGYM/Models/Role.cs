@@ -2,7 +2,7 @@
 
 namespace MOGYM.Models
 {
-    public class Role
+    public class RoleModel
     {
         [Key]
         public int Id { get; set; }
