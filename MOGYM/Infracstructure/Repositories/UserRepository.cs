@@ -20,15 +20,20 @@ namespace MOGYM.Infracstructure.Repositories
 
             return await query.ToListAsync();
         }
+        public async Task<UserModel> GetUserBranch(int id)
+        {
+            return await _entities.AsNoTracking().Include(b => b.Branch).Where(u => u.Id == id).SingleOrDefaultAsync();
+        }
 
         public async Task<UserModel> GetUser(string gmail)
         {
-            return await _entities.Where(u => u.Gmail == gmail).FirstOrDefaultAsync();
+            return await _entities.AsNoTracking().Where(u => u.Gmail == gmail).SingleOrDefaultAsync();
         }
 
         public async Task<bool> IsExist(string gmail)
         {
             return await _entities.AnyAsync(u => u.Gmail == gmail);
         }
+
     }
 }

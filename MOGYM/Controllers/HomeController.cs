@@ -10,6 +10,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.VisualBasic;
 using System.Collections;
+using System;
 
 namespace MOGYM.Controllers
 {
@@ -68,8 +69,8 @@ namespace MOGYM.Controllers
                     return View();
                 }
 
-                UserModel userFound = await _userRepository.GetUser(gmail);
-                string decryptedPassword = DataUtility.DecryptPassword(userFound.Password);
+                var user = await _userRepository.GetUser(gmail);
+                string decryptedPassword = DataUtility.DecryptPassword(user.Password);
 
                 if (password != decryptedPassword)
                 {
@@ -81,11 +82,10 @@ namespace MOGYM.Controllers
                 var claims = new List<Claim>
                 {
                     // Claims are pieces of information about the user
-                    new Claim(ClaimTypes.Name, userFound.Name),
-                    new Claim("Avatar", userFound.Avatar),
-                    new Claim(ClaimTypes.Email, userFound.Gmail),
-                    new Claim(ClaimTypes.MobilePhone, userFound.PhoneNumber),
-                    new Claim(ClaimTypes.NameIdentifier, userFound.Id.ToString()),
+                    new Claim(ClaimTypes.Name, user.Name),
+                    new Claim(ClaimTypes.Email, user.Gmail),
+                    new Claim(ClaimTypes.MobilePhone, user.PhoneNumber),
+                    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 };
 
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -145,10 +145,33 @@ namespace MOGYM.Controllers
 
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [Route("/Home/Error/{code:int}")]
+        public IActionResult HandleError(int code, string message)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            switch (code)
+            {
+                case 404:
+                    ViewData["ErrorCode"] = "404";
+                    ViewData["ErrorMessage"] = "Trang bạn đang tìm kiếm không khả dụng!";
+                    break;
+                case 403:
+                    ViewData["ErrorCode"] = "403";
+                    ViewData["ErrorMessage"] = "Bạn không có quyền truy cập tài nguyên được yêu cầu trên máy chủ!";
+                    break;
+                case 500:
+                    ViewData["ErrorCode"] = "500";
+                    ViewData["ErrorMessage"] = "Lỗi máy chủ!";
+                    break;
+                case 400:
+                    ViewData["ErrorCode"] = "400";
+                    ViewData["ErrorMessage"] = "Hiện máy chủ web không thể xử lý truy vấn!";
+                    break;
+                default:
+                    ViewData["ErrorCode"] = "Error";
+                    ViewData["ErrorMessage"] = message;
+                    break;
+            }
+            return View("~/Views/Shared/Error.cshtml");
         }
     }
 }

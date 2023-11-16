@@ -10,9 +10,9 @@ namespace MOGYM.Infracstructure.Repositories
         {
         }
 
-        public async Task<TraineeModel> GetTrainee(int id)
-        {
-            return await _entities.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
-        }
+        //public async Task<bool> IsExist(int id)
+        //{
+        //    return await _entities.AnyAsync(u => u.Id == id);
+        //}
     }
 }

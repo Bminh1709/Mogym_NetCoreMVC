@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Build.Framework;
 using MOGYM.Enums;
+using MOGYM.Helpers;
 using MOGYM.Infracstructure.Interfaces;
 using MOGYM.Infracstructure.Repositories;
 using MOGYM.Models;
@@ -13,82 +16,55 @@ namespace MOGYM.Areas.Admin.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IUserRepository _userRepository;
-        private readonly IBranchRepository _branchRepository;
-        
-        public AccountController(IUnitOfWork unitOfWork, IUserRepository userRepository,  IBranchRepository branchRepository)
+        private readonly IMapper _mapper;
+
+        public AccountController(IUnitOfWork unitOfWork, IUserRepository userRepository, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _userRepository = userRepository;
-            _branchRepository = branchRepository;
+            _mapper = mapper;
         }
    
         public async Task<IActionResult> Index(string filter)
         {
             ViewBag.Filter = filter;
-            ViewData["Branches"] = await _branchRepository.GetBranches();
+            ViewData["Branches"] = await _unitOfWork.BranchRepository.GetAll();
             var users = await _userRepository.GetUsers(filter);
             return View(users);
         }
+        public async Task<IActionResult> GetRole(int userId)
+        {
+            var user = await _userRepository.GetUserBranch(userId);
+            int branchId = user.Branch?.Id ?? 0;
+            int roleId = 0;
+            if (user is TrainerModel) roleId = (int)RoleEnum.Trainer;
+            else if (user is TraineeModel) roleId = (int)RoleEnum.Trainee;
+            return Json(new { success = true, branchId = branchId, roleId = roleId });
+        } 
 
         [HttpPost]
         public async Task<IActionResult> SetRole(int userId, int branchId, int roleId)
         {
-            var user = await _unitOfWork.UserRepository.Get(userId);
-            var branch = await _unitOfWork.BranchRepository.Get(branchId);
-
-            if (user != null && branch != null)
+            try
             {
-                user.Branch = branch;
+                var user = await _unitOfWork.UserRepository.Get(userId);
+                var branch = await _unitOfWork.BranchRepository.Get(branchId);
 
-                await _unitOfWork.UserRepository.Update(user);
+                if (branch != null && user.Branch?.Id != branchId)
+                {
+                    user.Branch = branch;
+                    await _unitOfWork.UserRepository.Update(user);
+                }
 
-                await HandleRoleSpecificLogicAsync((RoleEnum)roleId, userId);
+                var roleUtility = new RoleUtility(_unitOfWork, _mapper);
+                await roleUtility.AssignRole((RoleEnum)roleId, user);
 
                 return RedirectToAction("Index");
             }
-
-            return View();
-        }
-
-        private async Task HandleRoleSpecificLogicAsync(RoleEnum role, int userId)
-        {
-            switch (role)
+            catch (Exception ex)
             {
-                case RoleEnum.Trainer:
-                    var trainerFound = await _unitOfWork.TrainerRepository.Get(userId);
-                    if (trainerFound == null)
-                    {
-                        int adminId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-                        AdminModel adminFound = await _unitOfWork.AdminRepository.Get(adminId);
-                        await _unitOfWork.TrainerRepository.Create(new TrainerModel { Id = userId, Admin = adminFound });
-                    }
-                    break;
-                case RoleEnum.Trainee:
-                    var traineeFound = await _unitOfWork.TraineeRepository.Get(userId);
-                    if (traineeFound == null)
-                    {
-                        UserModel existingUser = await _unitOfWork.UserRepository.Get(userId);
-                        TraineeModel newTrainee = new TraineeModel();
-
-                        if (existingUser != null)
-                        {
-
-                            // Use reflection to copy properties from User to Trainee
-                            foreach (var propertyInfo in typeof(UserModel).GetProperties())
-                            {
-                                // Exclude properties you don't want to copy, e.g., Id
-                                if (propertyInfo.Name != "Id")
-                                {
-                                    var value = propertyInfo.GetValue(existingUser);
-                                    propertyInfo.SetValue(newTrainee, value);
-                                }
-                            }
-                        }
-                        await _unitOfWork.TraineeRepository.Create(newTrainee);
-                    }
-                    break;
-                default:
-                    break;
+                return View(ex);
+                // return RedirectToAction("HandleError", "Home", new { message = ex.Message });
             }
         }
     }

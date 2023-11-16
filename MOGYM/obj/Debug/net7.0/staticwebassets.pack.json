@@ -113,6 +113,10 @@
       "PackagePath": "staticwebassets\\css\\commonUser.css"
     },
     {
+      "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\css\\error.css",
+      "PackagePath": "staticwebassets\\css\\error.css"
+    },
+    {
       "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\css\\grid.css",
       "PackagePath": "staticwebassets\\css\\grid.css"
     },

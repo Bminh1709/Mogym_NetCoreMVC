@@ -22,11 +22,12 @@
 
 <input hidden type="checkbox" id="formUpdateRole">
 <label for="formUpdateRole" class="nav__overlay"></label>
-<form for="formUpdateRole" class="formUpSert__form account-form__container" method="post" asp-action="SetRole">
+<form for="formUpdateRole" class="formUpSert__form account-form__container" method="post" asp-controller="Account" asp-action="SetRole">
     <p class="formUpSert__title">CẬP NHẬT THÔNG TIN</p>
     <input id="userIdInput" name="userId" type="number" readonly hidden/>
     <div class="account__form">
-        <select name="branchId" class="dropdown__select">
+        <select id="branchSelectList" name="branchId" class="dropdown__select">
+            <option value="">Chọn chi nhánh</option>
             @if (branches != null)
             {
                 @foreach (var branch in branches as List<BranchModel>)
@@ -35,7 +36,8 @@
                 }
             }
         </select>
-        <select name="roleId" class="dropdown__select">
+        <select id="roleSelectList"  name="roleId" class="dropdown__select">
+            <option value="">Chọn vai trò</option>
             <option value="2">Huấn luyên viên</option>
             <option value="3">Học viên</option>
         </select>
