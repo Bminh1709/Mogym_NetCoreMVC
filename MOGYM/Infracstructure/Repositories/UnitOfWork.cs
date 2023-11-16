@@ -33,9 +33,9 @@ namespace MOGYM.Infracstructure.Repositories
             _dbContext.Dispose();
         }
 
-        public void SaveChanges()
+        public async Task SaveChanges()
         {
-            _dbContext.SaveChanges();
+            await _dbContext.SaveChangesAsync();
         }
     }
 }

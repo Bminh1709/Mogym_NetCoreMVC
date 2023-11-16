@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "IIqvkQHf4xCofGbAPhL3kR+1uEi88Aj3qUYCXWIX1G8=",
+  "Hash": "vz5l5NeQO8FZBA5E3vazaQnKsbC+RGWwvfrClZE4/GE=",
   "Source": "MOGYM",
   "BasePath": "_content/MOGYM",
   "Mode": "Default",
@@ -134,6 +134,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\commonUser.css"
+    },
+    {
+      "Identity": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\css\\error.css",
+      "SourceId": "MOGYM",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\",
+      "BasePath": "_content/MOGYM",
+      "RelativePath": "css/error.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\error.css"
     },
     {
       "Identity": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\css\\grid.css",

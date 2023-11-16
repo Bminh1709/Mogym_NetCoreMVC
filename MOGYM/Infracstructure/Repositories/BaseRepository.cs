@@ -22,7 +22,7 @@ namespace MOGYM.Infracstructure.Repositories
 
         public virtual async Task<IEnumerable<T>> GetAll()
         {
-            return await _entities.ToListAsync();
+            return await _entities.AsNoTracking().ToListAsync();
         }
 
         public virtual async Task<bool> Create(T model)

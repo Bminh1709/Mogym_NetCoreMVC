@@ -32,6 +32,9 @@ builder.Services.AddDbContext<MyDbContext>(options =>
 //        options.User.RequireUniqueEmail = true;
 //    }).AddEntityFrameworkStore<MyDbContext>();
 
+// AutoMapper
+builder.Services.AddAutoMapper(typeof(Program));
+
 // Register Services
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(BaseRepository<>));
 builder.Services.AddScoped<DbContext, MyDbContext>();
@@ -61,6 +64,8 @@ app.UseRouting();
 app.UseAuthentication();
 
 app.UseAuthorization();
+
+app.UseStatusCodePagesWithRedirects("/Home/Error/{0}");
 
 app.MapControllerRoute(
     name: "MyArea",
