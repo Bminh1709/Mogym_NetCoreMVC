@@ -2,17 +2,37 @@
 
 namespace MOGYM.Infracstructure.Services
 {
-    public class FileUploadService : IFileUpload
+    public class FileUploadService : IFileUploadService
     {
-        public async Task<string> UploadFile(IFormFile file)
+        public bool DeleteFile(string fileName, string folderName)
         {
-            string path = string.Empty;
+            try
+            {
+                string directoryPath = Path.Combine("wwwroot", "Image", folderName);
+                string filePath = Path.Combine(directoryPath, fileName);
 
+                // Check if the file exists
+                if (File.Exists(filePath))
+                {
+                    File.Delete(filePath);
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public async Task<string> UploadFile(IFormFile file, string folderName)
+        {
             try
             {
                 if (file.Length > 0)
                 {
-                    path = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Image/Avatar"));
+                    string path = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Image/" + folderName));
                     if (!Directory.Exists(path))
                     {
                         Directory.CreateDirectory(path);
@@ -32,9 +52,9 @@ namespace MOGYM.Infracstructure.Services
 
                 return string.Empty;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception("Tải file gặp lỗi", ex);
+                throw new ArgumentException("Tải file gặp lỗi");
             }
         }
     }

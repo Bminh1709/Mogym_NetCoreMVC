@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims
+@{
+    var activeNav = ViewBag.TrainerNav;
+
+    var Name = User.FindFirstValue(ClaimTypes.Name);
+    var Avatar = User.FindFirstValue("Avatar");
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -18,18 +25,18 @@
             <div class="sidebar__item">
                 <p class="sidebar-item__title">DANH MỤC</p>
                 <div class="sidebar-item__menu">
-                    <div class="sidebar-menu member-tab active" onclick="showTab('member-tab')">
+                    <a asp-controller="Home" class="sidebar-menu @(activeNav == "Trainee" ? "active" : "")">
                         <i class="fa-solid fa-users"></i>
                         <p>Học viên</p>
-                    </div>
-                    <div class="sidebar-menu message-tab" onclick="showTab('message-tab')">
+                    </a>
+                    <a asp-controller="Message" class="sidebar-menu @(activeNav == "Message" ? "active" : "")">
                         <i class="fa-solid fa-message"></i>
                         <p>Tin nhắn</p>
-                    </div>
-                    <div class="sidebar-menu schedule-tab" onclick="showTab('schedule-tab')">
+                    </a>
+                    <a asp-controller="Schedule" class="sidebar-menu @(activeNav == "Schedule" ? "active" : "")">
                         <i class="fa-solid fa-calendar-days"></i>
                         <p>Lịch trình</p>
-                    </div>
+                    </a>
                 </div>
                 <div class="sidebar-item__link">
                     <div>
@@ -54,18 +61,18 @@
                     <div class="navbar-responsive__item">
                         <a href="/"><p class="navbar-item__title">MOGYM</p></a>
                         <div class="separator-line"></div>
-                        <a onclick="showTab('member-tab')">Học viên</a>
-                        <a onclick="showTab('message-tab')">Tin nhắn</a>
-                        <a onclick="showTab('schedule-tab')">Lịch trình</a>
+                        <a asp-controller="Home">Học viên</a>
+                        <a asp-controller="Message">Tin nhắn</a>
+                        <a asp-controller="Schedule">Lịch trình</a>
                     </div>
                 </div>
                 <div class="navbar__item">
                     <label for="formUpdateInfo" class="infoForm__btn"><i class="fa-solid fa-ellipsis-vertical"></i></label>
                     <div class="navbar-item__info">
-                        <img class="navbar-info__img" src="~/Image/System/System/minh2.jpg" alt="">
+                        <img class="navbar-info__img" src="~/Image/Avatar/@(Avatar ?? "noimg.jpg")" alt="">
                         <div class="navbar-info__detail">
-                            <p>Bùi Minh</p>
-                            <p>Huấn luyện viên thể hình</p>
+                            <p>@Name</p>
+                            <p>Huấn luyện viên</p>
                         </div>
                     </div>
                     <a class="navbar-item__logout" href=""><i class="fa-solid fa-right-from-bracket"></i></a>

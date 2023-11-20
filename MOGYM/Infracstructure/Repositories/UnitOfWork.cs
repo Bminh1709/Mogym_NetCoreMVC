@@ -12,7 +12,8 @@ namespace MOGYM.Infracstructure.Repositories
         IGenericRepository<BranchModel> branchRepository,
         IGenericRepository<TrainerModel> trainerRepository,
         IGenericRepository<TraineeModel> traineeRepository,
-        IGenericRepository<AdminModel> adminRepository)
+        IGenericRepository<AdminModel> adminRepository,
+        IGenericRepository<ServiceModel> serviceRepository)
         {
             _dbContext = dbContext;
             UserRepository = userRepository;
@@ -20,6 +21,7 @@ namespace MOGYM.Infracstructure.Repositories
             TrainerRepository = trainerRepository;
             TraineeRepository = traineeRepository;
             AdminRepository = adminRepository;
+            ServiceRepository = serviceRepository;
         }
 
         public IGenericRepository<UserModel> UserRepository { get; }
@@ -27,6 +29,7 @@ namespace MOGYM.Infracstructure.Repositories
         public IGenericRepository<TrainerModel> TrainerRepository { get; }
         public IGenericRepository<TraineeModel> TraineeRepository { get; }
         public IGenericRepository<AdminModel> AdminRepository { get; }
+        public IGenericRepository<ServiceModel> ServiceRepository { get; }
 
         public void Dispose()
         {

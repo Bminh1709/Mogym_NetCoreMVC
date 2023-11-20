@@ -78,15 +78,27 @@ namespace MOGYM.Controllers
                     return View();
                 }
 
+                string userType = UserUtility.DetermineUserRole(user);
+
                 // Setting Claims
                 var claims = new List<Claim>
                 {
-                    // Claims are pieces of information about the user
                     new Claim(ClaimTypes.Name, user.Name),
                     new Claim(ClaimTypes.Email, user.Gmail),
                     new Claim(ClaimTypes.MobilePhone, user.PhoneNumber),
                     new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                    new Claim(ClaimTypes.Role, userType)
                 };
+
+                if (user.Avatar != null)
+                {
+                    claims.Add(new Claim("Avatar", user.Avatar));
+                }
+
+                if (user.Branch != null)
+                {
+                    claims.Add(new Claim(ClaimTypes.Locality, user.Branch.Id.ToString()));
+                }
 
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
@@ -128,7 +140,7 @@ namespace MOGYM.Controllers
                 }
                 else if (avatar != null)
                 {
-                    model.Avatar = await _fileUploadService.UploadFile(avatar);
+                    model.Avatar = await _fileUploadService.UploadFile(avatar, "Avatar");
                 }    
 
                 model.Password = DataUtility.EncryptPassword(model.Password);
@@ -146,7 +158,7 @@ namespace MOGYM.Controllers
         }
 
         [Route("/Home/Error/{code:int}")]
-        public IActionResult HandleError(int code, string message)
+        public IActionResult HandleError(int? code, string? message)
         {
             switch (code)
             {
@@ -156,7 +168,7 @@ namespace MOGYM.Controllers
                     break;
                 case 403:
                     ViewData["ErrorCode"] = "403";
-                    ViewData["ErrorMessage"] = "Bạn không có quyền truy cập tài nguyên được yêu cầu trên máy chủ!";
+                    ViewData["ErrorMessage"] = "Bạn không có quyền truy cập tài nguyên!";
                     break;
                 case 500:
                     ViewData["ErrorCode"] = "500";

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using MOGYM.Data;
 using MOGYM.Infracstructure.Interfaces;
 using MOGYM.Infracstructure.Repositories;
@@ -17,33 +18,29 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(option =>
     {
-        option.LoginPath = "/Home/SignIn";
         option.ExpireTimeSpan = TimeSpan.FromDays(2);
+        option.LoginPath = new PathString("/Home/SignIn");
+        option.AccessDeniedPath = new PathString("/Home/Error/403");
     });
 
 builder.Services.AddDbContext<MyDbContext>(options =>
-    {
-        options.UseSqlServer(builder.Configuration.GetConnectionString("MogymConnectingString"));
-    });
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MogymConnectingString"));
+});
 
-//builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
-//    {
-//        options.SignIn.RequireConfirmedAccount = false;
-//        options.User.RequireUniqueEmail = true;
-//    }).AddEntityFrameworkStore<MyDbContext>();
+// Register Services
+builder.Services.AddScoped<DbContext, MyDbContext>();
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(BaseRepository<>));
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
+//builder.Services.AddScoped<IAdminRepository, AdminRepository>();
+//builder.Services.AddScoped<IBranchRepository, BranchRepository>();
+//builder.Services.AddScoped<ITraineeRepository, TraineeRepository>();
+builder.Services.AddTransient<FileUploadService>();
 
 // AutoMapper
 builder.Services.AddAutoMapper(typeof(Program));
-
-// Register Services
-builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(BaseRepository<>));
-builder.Services.AddScoped<DbContext, MyDbContext>();
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IAdminRepository, AdminRepository>();
-builder.Services.AddScoped<IBranchRepository, BranchRepository>();
-builder.Services.AddScoped<ITraineeRepository, TraineeRepository>();
-builder.Services.AddTransient<FileUploadService>();
 
 var app = builder.Build();
 
@@ -75,21 +72,5 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-// Code for seeding roles
-//using (var scope = app.Services.CreateScope())
-//{
-//    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-//    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
-
-//    var roles = new[] { "Admin", "Trainer", "Trainee" };
-
-//    foreach (var role in roles)
-//    {
-//        if (!await roleManager.RoleExistsAsync(role))
-//        {
-//            await roleManager.CreateAsync(new IdentityRole(role));
-//        }
-//    }
-//}
 
 app.Run();

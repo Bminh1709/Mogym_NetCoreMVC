@@ -41,7 +41,7 @@ namespace MOGYM.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Branches");
+                    b.ToTable("Branches", (string)null);
                 });
 
             modelBuilder.Entity("MOGYM.Models.FeedbackModel", b =>
@@ -70,7 +70,7 @@ namespace MOGYM.Migrations
 
                     b.HasIndex("TrainerId");
 
-                    b.ToTable("Feedbacks");
+                    b.ToTable("Feedbacks", (string)null);
                 });
 
             modelBuilder.Entity("MOGYM.Models.ServiceModel", b =>
@@ -108,7 +108,7 @@ namespace MOGYM.Migrations
 
                     b.HasIndex("BranchId");
 
-                    b.ToTable("Services");
+                    b.ToTable("Services", (string)null);
                 });
 
             modelBuilder.Entity("MOGYM.Models.TimeTableModel", b =>
@@ -138,7 +138,7 @@ namespace MOGYM.Migrations
 
                     b.HasIndex("TrainerId");
 
-                    b.ToTable("TimeTables");
+                    b.ToTable("TimeTables", (string)null);
                 });
 
             modelBuilder.Entity("MOGYM.Models.UserModel", b =>
@@ -178,7 +178,7 @@ namespace MOGYM.Migrations
 
                     b.HasIndex("BranchId");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
 
                     b.UseTptMappingStrategy();
                 });
@@ -207,14 +207,14 @@ namespace MOGYM.Migrations
 
                     b.HasIndex("TraineeId");
 
-                    b.ToTable("WorkoutSchedules");
+                    b.ToTable("WorkoutSchedules", (string)null);
                 });
 
             modelBuilder.Entity("MOGYM.Models.AdminModel", b =>
                 {
                     b.HasBaseType("MOGYM.Models.UserModel");
 
-                    b.ToTable("Admins");
+                    b.ToTable("Admins", (string)null);
                 });
 
             modelBuilder.Entity("MOGYM.Models.TraineeModel", b =>
@@ -235,7 +235,7 @@ namespace MOGYM.Migrations
 
                     b.HasIndex("TrainerId");
 
-                    b.ToTable("Trainees");
+                    b.ToTable("Trainees", (string)null);
                 });
 
             modelBuilder.Entity("MOGYM.Models.TrainerModel", b =>
@@ -247,7 +247,7 @@ namespace MOGYM.Migrations
 
                     b.HasIndex("AdminId");
 
-                    b.ToTable("Trainers");
+                    b.ToTable("Trainers", (string)null);
                 });
 
             modelBuilder.Entity("MOGYM.Models.FeedbackModel", b =>

@@ -7,7 +7,7 @@
 <div class="signup__container">
     <span class="bg_blur blur-right"></span>
     <p class="login__title">Đăng ký</p>
-    <form class="login__form" method="post" asp-controller="Home" asp-action="SignUp" enctype="multipart/form-data">
+    <form class="login__form" method="post" asp-controller="Home" asp-action="SignUp" enctype="multipart/form-data" onsubmit="return formValidService();">
         <div class="login__item">
             <label for="">Tên đầy đủ</label>
             <input asp-for="Name" type="text" name="name" placeholder="Nhập tên tại đây" value="@Model?.Name">

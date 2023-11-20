@@ -9,6 +9,7 @@ namespace MOGYM.Infracstructure.Interfaces
         IGenericRepository<TrainerModel> TrainerRepository { get; }
         IGenericRepository<TraineeModel> TraineeRepository { get; }
         IGenericRepository<AdminModel> AdminRepository { get; }
+        IGenericRepository<ServiceModel> ServiceRepository { get; }
 
         Task SaveChanges();
     }

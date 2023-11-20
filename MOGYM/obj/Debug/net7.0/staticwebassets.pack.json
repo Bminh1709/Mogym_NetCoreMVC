@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\Image\\Avatar\\524f0b519c754f40a05ef238a169b35dgoTA.png"
     },
     {
+      "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\Image\\Avatar\\79ea1530f4cd432783cf30138fde3ca3_swim.jpg",
+      "PackagePath": "staticwebassets\\Image\\Avatar\\79ea1530f4cd432783cf30138fde3ca3_swim.jpg"
+    },
+    {
       "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\Image\\Avatar\\a6059c2d070240f88d79a6bd1820c3c5_z4521248027525_b86f8813c3911c2335f574ad39b3c429.jpg",
       "PackagePath": "staticwebassets\\Image\\Avatar\\a6059c2d070240f88d79a6bd1820c3c5_z4521248027525_b86f8813c3911c2335f574ad39b3c429.jpg"
     },
@@ -31,6 +35,22 @@
     {
       "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\Image\\Avatar\\goTA.png",
       "PackagePath": "staticwebassets\\Image\\Avatar\\goTA.png"
+    },
+    {
+      "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\Image\\Avatar\\noImg.jpg",
+      "PackagePath": "staticwebassets\\Image\\Avatar\\noImg.jpg"
+    },
+    {
+      "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\Image\\Service\\08a6ff34c80a419d8f0c47c8efd106dd_gymnastic.jpg",
+      "PackagePath": "staticwebassets\\Image\\Service\\08a6ff34c80a419d8f0c47c8efd106dd_gymnastic.jpg"
+    },
+    {
+      "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\Image\\Service\\bb61970aa9b44bbcad3e8a869a9fb872_swim.jpg",
+      "PackagePath": "staticwebassets\\Image\\Service\\bb61970aa9b44bbcad3e8a869a9fb872_swim.jpg"
+    },
+    {
+      "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\Image\\Service\\no-image.png",
+      "PackagePath": "staticwebassets\\Image\\Service\\no-image.png"
     },
     {
       "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\Image\\System\\aerobic.jpg",
@@ -63,6 +83,10 @@
     {
       "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\Image\\System\\minh4.jpg",
       "PackagePath": "staticwebassets\\Image\\System\\minh4.jpg"
+    },
+    {
+      "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\Image\\System\\no-image.png",
+      "PackagePath": "staticwebassets\\Image\\System\\no-image.png"
     },
     {
       "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\Image\\System\\pexels-leon-ardho-1552249.jpg",
@@ -113,10 +137,6 @@
       "PackagePath": "staticwebassets\\css\\commonUser.css"
     },
     {
-      "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\css\\error.css",
-      "PackagePath": "staticwebassets\\css\\error.css"
-    },
-    {
       "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\css\\grid.css",
       "PackagePath": "staticwebassets\\css\\grid.css"
     },
@@ -141,16 +161,20 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\js\\adminAccountAjax.js",
-      "PackagePath": "staticwebassets\\js\\adminAccountAjax.js"
+      "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\js\\adminAccount.js",
+      "PackagePath": "staticwebassets\\js\\adminAccount.js"
+    },
+    {
+      "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\js\\adminService.js",
+      "PackagePath": "staticwebassets\\js\\adminService.js"
+    },
+    {
+      "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\js\\common.js",
+      "PackagePath": "staticwebassets\\js\\common.js"
     },
     {
       "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\js\\home.js",
       "PackagePath": "staticwebassets\\js\\home.js"
-    },
-    {
-      "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\js\\tabShifter.js",
-      "PackagePath": "staticwebassets\\js\\tabShifter.js"
     },
     {
       "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\lib\\bootstrap\\LICENSE",
@@ -379,6 +403,10 @@
     {
       "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\Project IT\\mogym\\SourceBE\\MOGYM\\MOGYM\\wwwroot\\lib\\jquery\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.validate.min.js"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.MOGYM.Microsoft.AspNetCore.StaticWebAssets.props",

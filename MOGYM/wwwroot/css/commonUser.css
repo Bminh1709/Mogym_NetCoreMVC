@@ -2,6 +2,13 @@
     background-color: unset;
     color: unset;
 }
+.error {
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    color: var(--MyOrange);
+    margin-top: 5px;
+}
 /* ==== INFO BTN ==== */
 .infoForm__btn {
     font-size: 20px;
@@ -359,13 +366,13 @@
 }
 
 .package-item__edit {
-    color: grey;
+    color: var(--MyPink);
     font-size: 18px;
 }
 
     .package-item__edit:hover i {
         cursor: pointer;
-        color: rgb(75, 75, 75);
+        color: var(--MyOrange);
     }
 
 .package-item__remove {
@@ -375,13 +382,13 @@
 }
 
     .package-item__remove i {
-        color: grey;
+        color: var(--MyPink);
         font-size: 18px;
     }
 
     .package-item__remove:hover i {
         cursor: pointer;
-        color: rgb(75, 75, 75);
+        color: var(--MyOrange);
     }
 
 .package__item {
@@ -417,6 +424,10 @@
 
 .package__detail {
     padding: 15px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .package-item__name {
@@ -779,16 +790,6 @@
 
     .message-chatbox__send:hover {
         background-color: var(--MyOrange);
-    }
-
-
-/* === TAB === */
-.tab {
-    display: none;
-}
-
-    .tab.active {
-        display: block;
     }
 
 

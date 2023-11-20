@@ -1,6 +1,7 @@
 ﻿@using System.Security.Claims
 @{
     var activeNav = ViewBag.AdminNav;
+
     var Name = User.FindFirstValue(ClaimTypes.Name);
     var Avatar = User.FindFirstValue("Avatar");
 }
@@ -17,6 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.validate.min.js" asp-append-version="true"></script>
 </head>
 <body>
     <div class="grid grid-cols-6">
@@ -78,16 +80,13 @@
                 </div>
                 <div class="navbar__item">
                     <label for="formUpdateInfo" class="infoForm__btn"><i class="fa-solid fa-ellipsis-vertical"></i></label>
-                    @if (Model != null)
-                    {
-                        <div class="navbar-item__info">
-                            <img class="navbar-info__img" src="~/Image/Avatar/" alt="">
-                            <div class="navbar-info__detail">
-                                <p>@Name</p>
-                                <p>Quản trị viên</p>
-                            </div>
+                    <div class="navbar-item__info">
+                        <img class="navbar-info__img" src="~/Image/Avatar/@(Avatar ?? "noimg.jpg")" alt="Avatar">
+                        <div class="navbar-info__detail">
+                            <p>@Name</p>
+                            <p>Quản trị viên</p>
                         </div>
-                    }
+                    </div>
                     <a class="navbar-item__logout" asp-area="Default" asp-controller="Home" asp-action="LogOut"><i class="fa-solid fa-right-from-bracket"></i></a>
                 </div>
 
@@ -121,5 +120,6 @@
         </div>
     </div>
 </body>
+<script src="~/js/common.js" asp-append-version="true"></script>
 @await RenderSectionAsync("Scripts", required: false)
 </html>

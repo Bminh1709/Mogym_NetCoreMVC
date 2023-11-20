@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Build.Framework;
 using MOGYM.Enums;
@@ -12,6 +13,7 @@ using System.Security.Claims;
 namespace MOGYM.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class AccountController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -27,19 +29,33 @@ namespace MOGYM.Areas.Admin.Controllers
    
         public async Task<IActionResult> Index(string filter)
         {
-            ViewBag.Filter = filter;
-            ViewData["Branches"] = await _unitOfWork.BranchRepository.GetAll();
-            var users = await _userRepository.GetUsers(filter);
-            return View(users);
+            try
+            {
+                ViewBag.Filter = filter;
+                ViewData["Branches"] = await _unitOfWork.BranchRepository.GetAll();
+                var users = await _userRepository.GetUsers(filter);
+                return View(users);
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("HandleError", "Home", new { message = ex.Message });
+            }
         }
         public async Task<IActionResult> GetRole(int userId)
         {
-            var user = await _userRepository.GetUserBranch(userId);
-            int branchId = user.Branch?.Id ?? 0;
-            int roleId = 0;
-            if (user is TrainerModel) roleId = (int)RoleEnum.Trainer;
-            else if (user is TraineeModel) roleId = (int)RoleEnum.Trainee;
-            return Json(new { success = true, branchId = branchId, roleId = roleId });
+            try
+            {
+                var user = await _userRepository.GetUserBranch(userId);
+                int branchId = user.Branch?.Id ?? 0;
+                int roleId = 0;
+                if (user is TrainerModel) roleId = (int)RoleEnum.Trainer;
+                else if (user is TraineeModel) roleId = (int)RoleEnum.Trainee;
+                return Json(new { success = true, branchId, roleId });
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("HandleError", "Home", new { message = ex.Message });
+            }
         } 
 
         [HttpPost]
@@ -63,8 +79,7 @@ namespace MOGYM.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
-                return View(ex);
-                // return RedirectToAction("HandleError", "Home", new { message = ex.Message });
+                return RedirectToAction("HandleError", "Home", new { message = ex.Message });
             }
         }
     }
