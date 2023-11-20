@@ -1,6 +1,7 @@
-﻿@{
+﻿@model IEnumerable<ServiceModel>
+@{
     ViewBag.AdminNav = "Service";
-    ViewData["Title"] = "Trang chủ";
+    ViewData["Title"] = "Dịch vụ";
     Layout = "../Shared/_AdminLayout.cshtml";
 }
 
@@ -11,87 +12,112 @@
         <P>Liên hệ nhân viên phụ trách để đặt mua</P>
     </div>
     <div class="search-item__option">
-        <form action="" class="search-option__form">
+        <form class="search-option__form">
             <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-            <input class="" type="text" placeholder="Nhập tên dịch vụ">
+            <input name="filter" value="@ViewBag.Filter" type="text" placeholder="Nhập tên dịch vụ">
         </form>
         <label for="formUpSert" class="search-option__add">Thêm dịch vụ</label>
     </div>
 </div>
 
+<!-- Form Insert and Update -->
 <input hidden type="checkbox" id="formUpSert">
-<label for="formUpSert" class="nav__overlay"></label>
-<form class="formUpSert__form package__form">
+<label for="formUpSert" id="package-item__add" class="nav__overlay"></label>
+<form class="formUpSert__form package__form" id="formService" method="post" asp-action="UpSertService" enctype="multipart/form-data">
     <p class="formUpSert__title">GÓI DỊCH VỤ</p>
     <div class="package-form__detail">
+        <input hidden readonly name="Id" type="text" id="service_id">
+        <div id="loading-spinner" style="display: none;">
+            <i class="fas fa-spinner fa-spin"></i>
+        </div>
         <div class="package-form__item">
             <p>Tiêu đề</p>
-            <input type="text">
+            <input name="Title" type="text" id="service_title">
         </div>
         <div class="package-form__item">
             <p>Mô tả</p>
-            <textarea></textarea>
+            <textarea name="Description" id="service_description"></textarea>
         </div>
         <div class="package-form__item">
             <p>Giá</p>
-            <input type="number">
+            <input name="Price" type="number" id="service_price">
         </div>
         <div class="package-form__item">
             <p>Ngày đắt đầu</p>
-            <input type="date">
+            <input name="StartDate" type="date" id="service_startDate">
         </div>
         <div class="package-form__item">
             <p>Ngày kết thúc</p>
-            <input type="date">
+            <input name="EndDate" type="date" id="service_endDate">
         </div>
         <div class="package-form__item">
             <div class="package-form__img">
-                <img class="package__img" src="./images/minh1.jpg" alt="">
-                <input id="package-form__img" hidden type="file">
+                <img id="service_img" class="package__img" src="~/image/system/no-image.png" alt="">
+                <input id="package-form__img" name="image" type="file" accept="image/*">
             </div>
         </div>
     </div>
     <div class="formUpSert__btn">
-        <label for="package-form__img">Chọn ảnh</label>
         <button class="" type="submit">Cập nhật</button>
     </div>
 </form>
 
+
+<!-- Form Delete -->
+<input hidden type="checkbox" id="formDelete">
+<label for="formDelete" class="nav__overlayDelete"></label>
+<form class="delete__form" method="post" asp-action="DeleteService">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <input type="text" name="serviceId" id="serviceDelete_id" hidden readonly>
+    <p>Bạn có chắc muốn xóa không</p>
+    <div>
+        <label for="formDelete">Hủy bỏ</label>
+        <button type="submit">Đồng ý</button>
+    </div>
+</form>
+
+
 <div class="package__container grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    @foreach (var service in Model)
+    {
     <div class="package__item">
         <div class="package__btn">
-            <label class="package-item__edit" for="formUpSert"><i class="fa-solid fa-gear"></i></label>
-            <button class="package-item__remove"><i class="fa-solid fa-circle-minus"></i></button>
+            <label data-id="@service.Id" class="package-item__edit" for="formUpSert"><i class="fa-solid fa-gear"></i></label>
+            <label data-id="@service.Id" for="formDelete" class="package-item__remove"><i class="fa-solid fa-circle-minus"></i></label>
         </div>
-        <img class="package-item__img" src="./images/minh2.jpg" alt="">
+        <img class="package-item__img" src="~/Image/Service/@(service.Image ?? "no-image.png")" alt="service image">
         <div class="package-item__tag">New</div>
         <div class="package__detail">
             <div>
-                <p class="package-item__name">Boxing 1 vs 1</p>
-                <p class="package-item__des">Bạn sẽ được tập 1 vs 1 với huấn luyện viên chuyên nghiệp</p>
+                <p class="package-item__name">@service.Title</p>
+                <p class="package-item__des">@service.Description</p>
             </div>
             <div class="package-item__detail">
                 <div class="package-detail">
                     <div class="package-detail__icon">
                         <i class="fa-solid fa-dollar-sign"></i>
                     </div>
-                    <p class="package-detail__info">Giá: <span>220.000đ</span></p>
+                        <p class="package-detail__info">Giá: <span>@string.Format("{0:0,000}", service.Price).Replace(",",".") đ</span></p>
                 </div>
                 <div class="package-detail">
                     <div class="package-detail__icon">
                         <i class="fa-solid fa-hourglass-start"></i>
                     </div>
-                    <p class="package-detail__info">Bắt đầu vào: <span>12/5/2023</span></p>
+                    <p class="package-detail__info">Bắt đầu vào: <span>@service.StartDate.ToShortDateString()</span></p>
                 </div>
                 <div class="package-detail">
                     <div class="package-detail__icon">
                         <i class="fa-solid fa-hourglass-end"></i>
                     </div>
-                    <p class="package-detail__info">Kết thúc vào: <span>12/5/2023</span></p>
+                    <p class="package-detail__info">Kết thúc vào: <span>@service.EndDate.ToShortDateString()</span></p>
                 </div>
             </div>
         </div>
     </div>
-
+    }
 </div>
 
+
+@section Scripts {
+    <script type="text/javascript" src="~/js/adminService.js" asp-append-version="true"></script>
+}

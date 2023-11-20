@@ -32,7 +32,8 @@ namespace MOGYM.Helpers
 
         public async Task AssignRole<T>(UserModel user, IGenericRepository<T> roleRepository) where T : UserModel
         {
-            var roleFound = await roleRepository.Get(user.Id);
+            T roleFound = await roleRepository.Get(user.Id);
+
             if (roleFound == null)
             {
                 await _unitOfWork.UserRepository.Delete(user);

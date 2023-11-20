@@ -9,6 +9,7 @@ namespace MOGYM.Areas.Trainer.Controllers
     {
         public IActionResult Index()
         {
+            ViewBag.TrainerNav = "Trainee";
             return View();
         }
     }

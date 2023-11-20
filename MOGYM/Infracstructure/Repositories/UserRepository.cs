@@ -11,7 +11,7 @@ namespace MOGYM.Infracstructure.Repositories
 
         public async Task<IEnumerable<UserModel>> GetUsers(string filter)
         {
-            IQueryable<UserModel> query = _dbContext.Set<UserModel>().Where(u => !(u is AdminModel));
+            IQueryable<UserModel> query = _entities.Where(u => !(u is AdminModel));
 
             if (!string.IsNullOrEmpty(filter))
             {
@@ -27,7 +27,7 @@ namespace MOGYM.Infracstructure.Repositories
 
         public async Task<UserModel> GetUser(string gmail)
         {
-            return await _entities.AsNoTracking().Where(u => u.Gmail == gmail).SingleOrDefaultAsync();
+            return await _entities.AsNoTracking().Include(b => b.Branch).Where(u => u.Gmail == gmail).SingleOrDefaultAsync();
         }
 
         public async Task<bool> IsExist(string gmail)

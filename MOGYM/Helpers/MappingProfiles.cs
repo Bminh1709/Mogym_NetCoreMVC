@@ -9,6 +9,7 @@ namespace MOGYM.Helpers
         {
             CreateMap<UserModel, TraineeModel>();
             CreateMap<UserModel, TrainerModel>();
+            CreateMap<ServiceModel, ServiceModel>();
         }
     }
 }

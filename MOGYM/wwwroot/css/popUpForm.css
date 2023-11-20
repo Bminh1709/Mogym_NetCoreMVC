@@ -241,6 +241,10 @@
         height: 150px;
     }
 
+    .package-form__img input {
+        width: 100%;
+    }
+
 /* ==== TRAINER ===== */
 .trainer-form__container {
     width: 80%;
@@ -305,6 +309,65 @@
     padding: 20px 20px 0 20px;
 }
 
+/* ==== DELETE ==== */
+.nav__overlayDelete {
+    z-index: 20;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+}
+
+.delete__form {
+    top: 20%;
+    z-index: 20;
+    position: fixed;
+    height: fit-content;
+    background-color: white;
+    margin: auto;
+    border-radius: 8px;
+    right: 0;
+    transform: translateX(100%);
+    width: fit-content;
+    padding: 20px 30px;
+    text-align: center;
+}
+
+    .delete__form i {
+        font-size: 40px;
+        color: var(--MyPink);
+    }
+
+    .delete__form p {
+        margin: 15px 0;
+        font-weight: 400;
+    }
+
+    .delete__form button {
+        border-radius: 5px;
+        padding: 8px 12px;
+        border: unset;
+        margin: 0 3px;
+        font-size: 15px;
+        background-color: rgb(242, 242, 242);
+    }
+
+    .delete__form label {
+        border-radius: 5px;
+        background-color: rgb(242, 242, 242);
+        padding: 8px 12px;
+        font-size: 15px;
+    }
+
+        .delete__form button:hover,
+        .delete__form label:hover {
+            cursor: pointer;
+            background-color: var(--MyPink);
+            color: white;
+        }
 
 
 /* ==== POP UP EFFECT ==== */
@@ -353,6 +416,15 @@
     left: 0;
 }
 
+#formDelete:checked ~ .nav__overlayDelete {
+    display: block;
+}
+
+#formDelete:checked ~ .delete__form {
+    transform: unset;
+    left: 0;
+}
+
 @media (min-width: 1024px) {
     .info__form {
         width: 40%;
@@ -370,6 +442,11 @@
 
     .package__img {
         width: 300px !important;
+    }
+
+    .package-form__img input {
+        width: 300px;
+        margin: auto;
     }
 
     .info__form {
